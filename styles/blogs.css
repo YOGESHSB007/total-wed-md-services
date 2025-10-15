@@ -1,0 +1,98 @@
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.animate-blink {
+    animation: blink 1s ease-in-out infinite;
+}
+
+
+.transulate-btn {
+    transition: transform 0.3s ease-in-out;
+}
+
+#show-btn:hover+.transulate-btn {
+    transform: translateX(2px) rotate(45deg);
+}
+
+.wave-top {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave-top svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+}
+
+.wave-top .shape-fill {transulate-btn
+    fill: #F9FAFB;
+}
+
+
+
+.hero-overlay {
+    background: linear-gradient(90deg, rgba(30, 41, 59, 0.85) 0%, rgba(30, 41, 59, 0.4) 100%);
+}
+
+.breadcrumb-item {
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: '›';
+    position: absolute;
+    right: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.25rem;
+}
+
+.title-animation {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-indicator {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.search-input:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}

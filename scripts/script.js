@@ -1,3 +1,40 @@
+// Sidebar Toggle
+const clickToOpen = document.getElementById('clickToOpen');
+const hiddensidebar = document.getElementById('hiddensidebar');
+const closeBtn = document.getElementById('close');
+const overlay = document.getElementById('overlay');
+
+// Open sidebar
+clickToOpen.addEventListener('click', () => {
+    hiddensidebar.classList.remove('-translate-x-full');
+    hiddensidebar.classList.add('translate-x-0');
+    overlay.classList.remove('hidden');
+});
+
+// Close sidebar
+function closeSidebar() {
+    hiddensidebar.classList.add('-translate-x-full');
+    hiddensidebar.classList.remove('translate-x-0');
+    overlay.classList.add('hidden');
+}
+
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+const servicesToggle = document.getElementById('servicesToggle');
+const servicesDropdown = document.getElementById('servicesDropdown');
+const servicesArrow = document.getElementById('servicesArrow');
+
+servicesToggle.addEventListener('click', () => {
+    if (servicesDropdown.style.maxHeight && servicesDropdown.style.maxHeight !== '0px') {
+        servicesDropdown.style.maxHeight = '0px';
+        servicesArrow.style.transform = 'rotate(0deg)';
+    } else {
+        servicesDropdown.style.maxHeight = servicesDropdown.scrollHeight + 'px';
+        servicesArrow.style.transform = 'rotate(180deg)';
+    }
+});
+
 document.querySelectorAll("#blink").forEach((anchor) => {
   const dot = document.createElement("div");
   dot.className = "w-1.5 h-1.5 bg-[#769FCD] rounded-full animate-blink mr-1";
@@ -5,18 +42,14 @@ document.querySelectorAll("#blink").forEach((anchor) => {
   const wrapper = document.createElement("div");
   wrapper.className = "flex items-center";
 
-  // Clone anchor and add to wrapper
   const clonedAnchor = anchor.cloneNode(true);
   wrapper.appendChild(dot);
   wrapper.appendChild(clonedAnchor);
 
-  // Replace original anchor with wrapper
   anchor.replaceWith(wrapper);
 
-  // Hide dot initially
   dot.style.visibility = "hidden";
 
-  // Show/hide on hover
   wrapper.addEventListener("mouseover", () => {
     dot.style.visibility = "visible";
   });
@@ -26,20 +59,89 @@ document.querySelectorAll("#blink").forEach((anchor) => {
   });
 });
 
+// ============ OPTIMIZED VIDEO SLIDER ============
 let currentSlide = 0;
 let interval;
 const slides = document.querySelectorAll(".video-slide");
 const indicators = document.querySelectorAll(".indicator");
 const totalSlides = slides.length;
+let isFirstVideoLoaded = false;
+
+// Add preload attribute to all videos programmatically
+slides.forEach((video, index) => {
+  video.setAttribute('preload', 'auto');
+  
+  // Remove autoplay from non-active videos
+  if (index !== 0) {
+    video.removeAttribute('autoplay');
+  }
+  
+  // Handle video loading
+  video.addEventListener('loadeddata', function() {
+    console.log(`Video ${index + 1} loaded`);
+    
+    // Start playing the first video once it's loaded
+    if (index === 0 && !isFirstVideoLoaded) {
+      isFirstVideoLoaded = true;
+      this.play().catch(err => console.log('Autoplay prevented:', err));
+      startAutoSlide();
+    }
+  });
+  
+  // Preload next video when current is playing
+  video.addEventListener('playing', function() {
+    const nextIndex = (currentSlide + 1) % totalSlides;
+    slides[nextIndex].load();
+  });
+});
 
 function showSlide(index) {
-  slides.forEach((slide) => slide.classList.remove("active"));
+  // Pause all videos and remove active class
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+    slide.pause();
+  });
+  
   indicators.forEach((indicator) => indicator.classList.remove("active"));
 
+  // Activate current slide
   slides[index].classList.add("active");
   indicators[index].classList.add("active");
 
-  slides[index].play();
+  // Play current video with error handling
+  slides[index].play().catch(err => {
+    console.log('Video play error:', err);
+  });
+  
+  // Trigger overlay content animations
+  triggerOverlayAnimations();
+}
+
+function triggerOverlayAnimations() {
+  const h1 = document.querySelector('.relative.z-10 h1');
+  const p = document.querySelector('.relative.z-10 p');
+  const button = document.querySelector('.relative.z-10 button');
+  
+  // Remove and re-add classes for h1
+  if (h1) {
+    h1.classList.remove('slide-in-left');
+    void h1.offsetWidth; // Force reflow
+    h1.classList.add('slide-in-left');
+  }
+  
+  // Remove and re-add classes for p
+  if (p) {
+    p.classList.remove('slide-in-left');
+    void p.offsetWidth; // Force reflow
+    p.classList.add('slide-in-left');
+  }
+  
+  // Remove and re-add classes for button
+  if (button) {
+    button.classList.remove('fade-in-up');
+    void button.offsetWidth; // Force reflow
+    button.classList.add('fade-in-up');
+  }
 }
 
 function nextSlide() {
@@ -61,7 +163,8 @@ function resetAutoSlide() {
   startAutoSlide();
 }
 
-startAutoSlide();
+// Wait for first video to load before starting auto-slide
+// (startAutoSlide is now called in the loadeddata event listener above)
 
 document.getElementById("right-arrow").addEventListener("click", function () {
   nextSlide();
@@ -81,15 +184,19 @@ indicators.forEach((indicator, index) => {
   });
 });
 
-// Pause on hover (optional)
+// Pause on hover
 const videoContainer = document.querySelector(".relative.h-screen");
-videoContainer.addEventListener("mouseenter", () => clearInterval(interval));
-videoContainer.addEventListener("mouseleave", startAutoSlide);
+if (videoContainer) {
+  videoContainer.addEventListener("mouseenter", () => clearInterval(interval));
+  videoContainer.addEventListener("mouseleave", () => {
+    if (isFirstVideoLoaded) startAutoSlide();
+  });
+}
 
 // Counter Animation Function
 function animateCounter(element, target, duration = 2000) {
   const start = 0;
-  const increment = target / (duration / 16); // 60 FPS
+  const increment = target / (duration / 16);
   let current = start;
 
   const timer = setInterval(() => {
@@ -124,7 +231,10 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe the stats section
 const statsSection = document.querySelector(".bg-gradient-to-r");
-observer.observe(statsSection);
+if (statsSection) {
+  observer.observe(statsSection);
+}
+
 const scrollToTopBtn = document.getElementById("scrollToTop");
 
 // Show/hide button based on scroll position
@@ -145,37 +255,73 @@ function scrollToTop() {
 }
 
 // Initial state
-scrollToTopBtn.style.display = "none";
+if (scrollToTopBtn) {
+  scrollToTopBtn.style.display = "none";
+}
 
 const observerOptions1 = {
   threshold: 0.2,
-  rootMargin: "0px",
+  rootMargin: "0px 0px -50px 0px",
 };
 
 const observer1 = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
+      entry.target.classList.add('animate-in');
+      // Unobserve after animation to prevent re-triggering
+      observer1.unobserve(entry.target);
     }
   });
 }, observerOptions1);
 
-// Observe all animated elements
-document.querySelectorAll(".fade-in, .slide-in").forEach((element) => {
-  element.style.opacity = "0";
+// Observe all animated elements - only animate on scroll
+document.querySelectorAll(".fade-in, .slide-in, .text-item, .card-fade-in, .speech-bubble, .image-float").forEach((element) => {
   observer1.observe(element);
 });
 
 const logoScroll = document.querySelector(".logo-scroll");
-const logoItems = document.querySelectorAll(".logo-item");
 
-logoScroll.addEventListener("mouseenter", () => {
-  logoScroll.style.animationPlayState = "paused";
+if (logoScroll) {
+  logoScroll.addEventListener("mouseenter", () => {
+    logoScroll.style.animationPlayState = "paused";
+  });
+
+  logoScroll.addEventListener("mouseleave", () => {
+    logoScroll.style.animationPlayState = "running";
+  });
+}
+
+// Observe sections for scroll-triggered animations
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Add staggered animation to child elements
+      const children = entry.target.querySelectorAll('.fade-in, .slide-in, .text-item, .card-fade-in, .speech-bubble, .image-float');
+      children.forEach((child, index) => {
+        setTimeout(() => {
+          child.classList.add('animate-in');
+        }, index * 100); // Stagger by 100ms
+      });
+      sectionObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
 });
 
-logoScroll.addEventListener("mouseleave", () => {
-  logoScroll.style.animationPlayState = "running";
+// Observe all sections that should animate on scroll
+const animatedSections = document.querySelectorAll('section');
+animatedSections.forEach(section => {
+  sectionObserver.observe(section);
+});
+
+// Also observe individual elements not in sections
+document.querySelectorAll('.fade-in, .slide-in, .text-item, .card-fade-in, .speech-bubble, .image-float').forEach((element) => {
+  // Check if element is not already being observed via a section
+  if (!element.closest('section')) {
+    observer1.observe(element);
+  }
 });
 
 const serviceCards = document.querySelectorAll(".service-card");
@@ -184,46 +330,39 @@ serviceCards.forEach((card) => {
   const serviceNum = card.getAttribute("data-service");
   const bgElement = card.querySelector(".service-bg");
 
-  // Mouse enter - change to hover background
   card.addEventListener("mouseenter", function () {
     bgElement.classList.remove(`service-${serviceNum}-default`);
     bgElement.classList.add(`service-${serviceNum}-hover`);
   });
 
-  // Mouse leave - change back to default background
   card.addEventListener("mouseleave", function () {
     bgElement.classList.remove(`service-${serviceNum}-hover`);
     bgElement.classList.add(`service-${serviceNum}-default`);
   });
 });
 
-// contact
-
 // Form submission handler
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  // Get form data
-  const formData = {
-    firstName: document.getElementById("firstName").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    address: document.getElementById("address").value,
-    services: document.getElementById("services").value,
-    message:
-      document.getElementById("message").value ||
-      document.getElementById("messageFull").value,
-  };
+    const formData = {
+      firstName: document.getElementById("firstName").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      address: document.getElementById("address").value,
+      services: document.getElementById("services").value,
+      message:
+        document.getElementById("message").value ||
+        document.getElementById("messageFull").value,
+    };
 
-  // Log form data (in production, send to server)
-  console.log("Form submitted:", formData);
-
-  // Show success message
-  alert("Thank you for contacting us! We will get back to you soon.");
-
-  // Reset form
-  this.reset();
-});
+    console.log("Form submitted:", formData);
+    alert("Thank you for contacting us! We will get back to you soon.");
+    this.reset();
+  });
+}
 
 // Sync message fields
 const messageShort = document.getElementById("message");

@@ -114,15 +114,60 @@
         .animate-once {
             animation: appear2 1.5s ease-out forwards;
         }
+        
+        
 
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+        
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.6s; /* Animate after text */
+            
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         .scrollbar-hide {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
 
-
+        @keyframes bounce-smooth {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-0.5rem);
+            }
+        }
+        
+        .animate-bounce-smooth {
+            animation: bounce-smooth 2s ease-in-out infinite;
+        }
         .transulate-btn {
             transition: transform 0.3s ease-in-out;
         }
@@ -623,3 +668,193 @@
         .service-4-hover {
             background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800');
         }
+
+
+       /* Disable initial animations - only trigger on scroll */
+.fade-in,
+.slide-in,
+.text-item,
+.card-fade-in,
+.speech-bubble,
+.image-float {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: none !important; /* Disable auto-animations */
+}
+
+/* Animation trigger class added by Intersection Observer */
+.animate-in.fade-in {
+    animation: fadeIn 1s ease-in forwards !important;
+}
+
+.animate-in.slide-in {
+    animation: slideIn 1s ease-out forwards !important;
+}
+
+.animate-in.text-item {
+    animation: slideInLeft 0.8s ease-out forwards !important;
+}
+
+.animate-in.text-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.animate-in.text-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.animate-in.text-item:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.animate-in.text-item:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+.animate-in.card-fade-in {
+    animation: fadeInUp 0.6s ease-out forwards !important;
+}
+
+.animate-in.card-fade-in:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.animate-in.card-fade-in:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.animate-in.card-fade-in:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.animate-in.speech-bubble {
+    animation: fadeIn 1s ease-in forwards !important;
+}
+
+.animate-in.image-float {
+    animation: fadeInUp 0.8s ease-out forwards, float 3s ease-in-out infinite !important;
+    animation-delay: 0s, 0.8s;
+}
+
+/* Keep existing keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Hero section animations should still work on load */
+.slide-in-left {
+    animation: slideInLeft 1s ease-out !important;
+}
+
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards !important;
+    animation-delay: 0.6s;
+}
+
+/* Prevent animation on page reload for specific sections */
+.logo-scroll {
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Service cards - no animation on load */
+.service-card .service-description {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.5s ease;
+}
+
+.service-card:hover .service-description {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Card hover effects remain functional */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Image overlay effects */
+.image-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-hover:hover .image-overlay::after {
+    opacity: 1;
+}

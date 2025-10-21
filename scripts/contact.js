@@ -25,29 +25,51 @@ document.querySelectorAll("#blink").forEach((anchor) => {
       dot.style.visibility = "hidden";
     });
   });
-  
-  
-  // Observe the stats section
-  const statsSection1 = document.querySelector('.bg-gradient-to-r');
-  observer.observe(statsSection1);
-  const scrollToTopBtn = document.getElementById('scrollToTop');
-  
-  // Show/hide button based on scroll position
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollToTopBtn.style.display = 'flex';
+
+
+  const servicesToggle = document.getElementById('servicesToggle');
+const servicesDropdown = document.getElementById('servicesDropdown');
+const servicesArrow = document.getElementById('servicesArrow');
+
+servicesToggle.addEventListener('click', () => {
+    if (servicesDropdown.style.maxHeight && servicesDropdown.style.maxHeight !== '0px') {
+        servicesDropdown.style.maxHeight = '0px';
+        servicesArrow.style.transform = 'rotate(0deg)';
     } else {
-        scrollToTopBtn.style.display = 'none';
+        servicesDropdown.style.maxHeight = servicesDropdown.scrollHeight + 'px';
+        servicesArrow.style.transform = 'rotate(180deg)';
+    }
+});
+  
+  const scrollToTopBtn = document.getElementById("scrollToTop");
+
+  // Show/hide button based on scroll position
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 300) {
+      scrollToTopBtn.style.display = "flex";
+    } else {
+      scrollToTopBtn.style.display = "none";
     }
   });
   
   // Scroll to top function
   function scrollToTop() {
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      top: 0,
+      behavior: "smooth",
     });
   }
   
   // Initial state
-  scrollToTopBtn.style.display = 'none';
+  if (scrollToTopBtn) {
+    scrollToTopBtn.style.display = "none";
+  }
+
+  
+  
+  // Observe the stats section
+  const statsSection1 = document.querySelector('.bg-gradient-to-r');
+  observer.observe(statsSection1);
+
+
+

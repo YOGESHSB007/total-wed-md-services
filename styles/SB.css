@@ -1,0 +1,117 @@
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+.animate-blink {
+    animation: blink 2s ease-in-out infinite;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #557CFA;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(85, 124, 250, 0.4);
+}
+
+.scroll-to-top:hover {
+    background: #4169e8;
+    transform: translateY(-5px);
+}
+
+.service-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+}
+
+.service-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 22, 40, 0.95), rgba(85, 124, 250, 0.85));
+    transition: background 0.5s ease;
+}
+
+.service-content {
+    position: relative;
+    z-index: 10;
+    padding: 2rem;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.service-number {
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 0.3;
+    margin-bottom: 1rem;
+}
+
+.service-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.service-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.service-card:hover .service-bg {
+    transform: scale(1.1);
+}
+
+.service-card:hover .service-description {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.service-card:hover .service-overlay {
+    background: linear-gradient(135deg, rgba(10, 22, 40, 0.98), rgba(85, 124, 250, 0.95));
+}
+
+.service-1-default { background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800'); }
+.service-2-default { background-image: url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800'); }
+.service-3-default { background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800'); }
+.service-4-default { background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800'); }
+.service-5-default { background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800'); }
+
+.energy-icon {
+    transition: all 0.3s ease;
+}
+
+.energy-card:hover .energy-icon {
+    transform: scale(1.1) rotate(5deg);
+}

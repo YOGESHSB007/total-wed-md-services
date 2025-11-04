@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Total Web MD Service</title>
+    <link href="styles/DM.css" rel="stylesheet">
+    <link href="styles/output.css" rel="stylesheet">
+</head>
+<body class="bg-[#F7FBFC]">
+
+
+    <!-- Header -->
+    <header class="flex justify-between items-center px-12 py-8 shadow-md bg-white">
+        <div class="flex items-center space-x-3">
+            <a href="home.html">
+                <img class="w-70 h-10" src="images/total-web-md-services-high-resolution-logo-transparent.png"
+                    alt="Blue Matrix Connect Logo">
+            </a>
+        </div>
+
+        <!-- Hamburger Menu Icon -->
+        <svg class="w-7 fill-blue-600 mr-5 lg:hidden cursor-pointer" id="clickToOpen"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+        </svg>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:block">
+            <nav class="flex items-center space-x-8 text-gray-800 font-medium">
+                <div class="relative group -mr-2">
+                    <button class="hover:text-blue-600 flex items-center -mr-1.5">
+                        Services
+                        <svg class="ml-1 w-4 h-4 text-gray-600 group-hover:text-blue-600" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <ul class="absolute hidden group-hover:block bg-white shadow-md mt-0 pt-2 rounded-lg text-sm z-30 min-w-max">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-t-lg">Compliance Management</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50">Solar and Battery Submission</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50">Web Development</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50">Digital Marketing</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50">Invoice</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Quotation</a></li>
+                    </ul>
+                </div>
+                <a href="ourTeam.html" class="hover:text-blue-600">Our Team</a>
+                <a href="career.html" class="hover:text-blue-600">Career</a>
+                <a href="contact.html" class="hover:text-blue-600">Contact</a>
+                <a href="Aboutus.html" class="hover:text-blue-600">About Us</a>
+                <a href="blogs.html" class="hover:text-blue-600">Blogs</a>
+                <div class="flex items-center">
+                    <div class="flex items-center group">
+                        <a href="contact.html"
+                            class="rounded-full inline-block bg-[#557CFA] text-white py-2 px-4 font-medium text-xs group-hover:bg-[#4169e8] transition-all duration-300">
+                            Book Meeting
+                        </a>
+                        <a href="contact.html" class="-ml-1">
+                            <svg class="w-8 p-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45 rounded-full fill-amber-50 bg-[#557CFA] group-hover:bg-[#4169e8]"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                <path d="M415.8 89C423.6 70.2 444.2 60.1 463.9 65.5L469.4 67C534 84.6 589.2 147.2 573.1 223.4C536 398.4 398.3 536.1 223.3 573.2C147 589.4 84.5 534.1 66.9 469.5L65.4 464C60 444.3 70.1 423.7 88.9 415.9L186.2 375.4C202.7 368.5 221.8 373.3 233.2 387.2L271.8 434.4C342.1 399.5 398.6 341.1 431.1 269.5L387 233.4C373.1 222.1 368.4 203 375.2 186.4L415.8 89z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Sidebar Menu -->
+        <div class="fixed top-0 left-0 h-screen w-80 bg-white shadow-2xl transform -translate-x-full transition-transform duration-500 ease-in-out z-50"
+            id="hiddensidebar">
+            <div class="flex justify-between items-center p-6 border-b">
+                <div class="text-xl font-semibold text-gray-800">Menu</div>
+                <button type="button" id="close">
+                    <svg class="w-6 h-6 cursor-pointer text-gray-600 hover:text-gray-800"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="mt-4">
+                <div class="relative">
+                    <button id="servicesToggle"
+                        class="flex items-center justify-between w-full px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                        <span>Services</span>
+                        <svg id="servicesArrow" class="w-5 h-5 text-gray-400 transition-transform duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="servicesDropdown" class="max-h-0 overflow-hidden transition-all duration-300 bg-gray-50">
+                        <a href="#" class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                            <span>Compliance Management</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                            <span>Digital Marketing</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                            <span>Web Development</span>
+                        </a>
+                    </div>
+                </div>
+                <a href="ourTeam.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">Our Team</a>
+                <a href="career.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">Career</a>
+                <a href="contact.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">Contact</a>
+                <a href="Aboutus.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">About Us</a>
+                <a href="blogs.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">Blogs</a>
+            </nav>
+        </div>
+
+        <!-- Overlay -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" id="overlay"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-[500px] bg-cover bg-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/80 to-blue-700/60">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=60 height=60 viewBox=0 0 60 60 xmlns=http://www.w3.org/2000/svg%3E%3Cg fill=none fill-rule=evenodd%3E%3Cg fill=%23ffffff fill-opacity=0.05%3E%3Cpath d=M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <div class="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-3xl">
+                Transform Your Brand with Data-Driven Digital Marketing
+            </h1>
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="#" class="text-blue-300 hover:text-white transition">Home</a>
+                <span class="text-blue-300">/</span>
+                <span class="text-white font-medium">Digital Marketing</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-center text-gray-700 text-lg md:text-xl mb-16 max-w-4xl mx-auto">
+                In today's digital-first world, your online presence isn't just important—it's everything. We help businesses cut through the noise, connect with their audience, and convert clicks into customers.
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gradient-to-br from-blue-600 to-purple-700">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="stat-counter text-white mb-2">250+</div>
+                    <p class="text-blue-100 text-sm md:text-base">Campaigns Launched</p>
+                </div>
+                <div class="text-center">
+                    <div class="stat-counter text-white mb-2">150%</div>
+                    <p class="text-blue-100 text-sm md:text-base">Average ROI Increase</p>
+                </div>
+                <div class="text-center">
+                    <div class="stat-counter text-white mb-2">98%</div>
+                    <p class="text-blue-100 text-sm md:text-base">Client Satisfaction</p>
+                </div>
+                <div class="text-center">
+                    <div class="stat-counter text-white mb-2">5M+</div>
+                    <p class="text-blue-100 text-sm md:text-base">Leads Generated</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">
+                Our Digital Marketing Services
+            </h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                From strategy to execution, we deliver comprehensive digital marketing solutions that drive real results
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">SEO Optimization</h3>
+                    <p class="text-gray-600 mb-4">
+                        Climb search rankings with our proven SEO strategies. We optimize your website to attract organic traffic and improve visibility on Google and other search engines.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Keyword Research</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> On-Page Optimization</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Link Building</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-bullhorn text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Social Media Marketing</h3>
+                    <p class="text-gray-600 mb-4">
+                        Build meaningful connections with your audience across all major platforms. We create engaging content that resonates and drives engagement.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Content Strategy</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Community Management</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Paid Social Ads</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-ad text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">PPC Advertising</h3>
+                    <p class="text-gray-600 mb-4">
+                        Get instant visibility and targeted traffic with strategic pay-per-click campaigns. We maximize your ad spend to deliver measurable results.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Google Ads</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Display Advertising</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Retargeting Campaigns</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-envelope text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Email Marketing</h3>
+                    <p class="text-gray-600 mb-4">
+                        Nurture leads and retain customers with personalized email campaigns. We create compelling messages that convert subscribers into loyal customers.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Campaign Design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Automation Setup</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> A/B Testing</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-pen-fancy text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Content Marketing</h3>
+                    <p class="text-gray-600 mb-4">
+                        Tell your brand story through compelling content. We create blogs, videos, infographics, and more that engage your audience and establish authority.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Blog Writing</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Video Production</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Infographic Design</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Analytics & Reporting</h3>
+                    <p class="text-gray-600 mb-4">
+                        Make data-driven decisions with comprehensive analytics. We track, measure, and report on every aspect of your digital marketing performance.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Performance Tracking</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Custom Dashboards</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> ROI Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-blue-600">
+                Our Marketing Process
+            </h2>
+            <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+                A proven methodology that turns your marketing goals into measurable results
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Left Column -->
+                <div class="space-y-8">
+                    <div class="process-step">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                                1
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Discovery & Research</h3>
+                                <p class="text-gray-600">
+                                    We dive deep into your business, competitors, and target audience. Understanding your market landscape is the foundation of every successful campaign.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                                2
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Strategy Development</h3>
+                                <p class="text-gray-600">
+                                    Based on our research, we craft a customized digital marketing strategy aligned with your business objectives and budget.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                                3
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Campaign Execution</h3>
+                                <p class="text-gray-600">
+                                    Our team launches and manages your campaigns across all chosen channels, ensuring every element is optimized for performance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="space-y-8">
+                    <div class="process-step">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                                4
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Monitoring & Optimization</h3>
+                                <p class="text-gray-600">
+                                    We continuously monitor campaign performance, making real-time adjustments to maximize ROI and achieve better results.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                                5
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Analysis & Reporting</h3>
+                                <p class="text-gray-600">
+                                    Receive comprehensive reports with actionable insights. We believe in complete transparency and data-driven decision making.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                                6
+                            </div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Scale & Grow</h3>
+                                <p class="text-gray-600">
+                                    As we identify what works, we scale successful strategies to amplify your growth and expand your market reach.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-gradient-to-br from-blue-900 to-purple-900 text-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                Why Choose Blue Matrix Connect?
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mb-6 float-animation">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Creative Excellence</h3>
+                    <p class="text-blue-100">
+                        Our team of creative experts crafts campaigns that don't just look good—they perform. We blend art with science to create marketing that resonates.
+                    </p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mb-6 float-animation" style="animation-delay: 0.2s;">
+                        <i class="fas fa-chart-bar text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Data-Driven Approach</h3>
+                    <p class="text-blue-100">
+                        Every decision we make is backed by data. We use advanced analytics and testing to ensure your marketing budget delivers maximum ROI.
+                    </p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mb-6 float-animation" style="animation-delay: 0.4s;">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Dedicated Support</h3>
+                    <p class="text-blue-100">
+                        You'll have a dedicated account manager who knows your business inside out. We're always available to answer questions and provide strategic guidance.
+                    </p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center mb-6 float-animation" style="animation-delay: 0.6s;">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Proven Track Record</h3>
+                    <p class="text-blue-100">
+                        With hundreds of successful campaigns under our belt, we know what works. Our portfolio speaks for itself with consistently impressive results.
+                    </p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center mb-6 float-animation" style="animation-delay: 0.8s;">
+                        <i class="fas fa-cogs text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Cutting-Edge Tools</h3>
+                    <p class="text-blue-100">
+                        We leverage the latest marketing technology and tools to give you a competitive edge. From AI-powered insights to automation, we use what works best.
+                    </p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover:bg-white/20 transition-all duration-300">
+                    <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-full flex items-center justify-center mb-6 float-animation" style="animation-delay: 1s;">
+                        <i class="fas fa-globe text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Multi-Channel Expertise</h3>
+                    <p class="text-blue-100">
+                        Whether it's social media, search engines, email, or content marketing—we excel across all digital channels to create integrated campaigns.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-blue-600">
+                Industries We Serve
+            </h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                We've helped businesses across diverse industries achieve their digital marketing goals
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-shopping-cart text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">E-commerce</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-heartbeat text-4xl text-red-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Healthcare</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-building text-4xl text-gray-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Real Estate</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-graduation-cap text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Education</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-utensils text-4xl text-orange-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Restaurant</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-laptop-code text-4xl text-green-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Technology</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-hotel text-4xl text-teal-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Hospitality</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-money-bill-wave text-4xl text-yellow-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Finance</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-tshirt text-4xl text-pink-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Fashion</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-car text-4xl text-indigo-600 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Automotive</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-dumbbell text-4xl text-red-500 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">Fitness</h3>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+                    <i class="fas fa-briefcase text-4xl text-blue-800 mb-4"></i>
+                    <h3 class="font-semibold text-gray-800">B2B Services</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-700 relative inline-block">
+                    FAQ's
+                    <div class="absolute -bottom-2 left-0 right-0 h-1 bg-red-600"></div>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-x-12 md:gap-y-10">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">?</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                What is digital marketing and why do I need it?
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Digital marketing encompasses all online marketing efforts. It's essential because your customers are online—searching, shopping, and engaging on digital platforms every day.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">?</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                How long does it take to see results from digital marketing?
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Results vary by strategy. PPC campaigns can show immediate results, while SEO typically takes 3-6 months. We focus on sustainable, long-term growth alongside quick wins.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">?</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                What's the difference between SEO and PPC?
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                SEO improves organic search rankings over time without paying per click. PPC delivers immediate visibility but requires payment for each click. Both are valuable and complementary.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">?</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                How do you measure digital marketing success?
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                We track KPIs aligned with your goals: traffic, conversions, ROI, engagement rates, and more. You'll receive regular reports with clear metrics and actionable insights.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">?</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                What's your pricing structure for digital marketing services?
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                We offer flexible packages tailored to your needs and budget. Pricing depends on services, campaign scope, and goals. Contact us for a custom quote based on your requirements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">?</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                Do I need to be on all social media platforms?
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Not necessarily. We help identify which platforms your target audience uses most and focus efforts there. Quality presence on the right platforms beats mediocre presence everywhere.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-black text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Latest Blogs Section -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Latest Blogs</h3>
+                    <div class="space-y-6">
+                        <div class="border-b border-gray-700 pb-5">
+                            <a href="#" class="hover:text-blue-400 transition">
+                                <h4 class="font-medium mb-2 leading-snug">
+                                    The Compliance Management System Behind Faster Submissions and Zero Rejections
+                                </h4>
+                            </a>
+                            <p class="text-gray-400 text-sm">September 11, 2025</p>
+                        </div>
+                        <div class="border-b border-gray-700 pb-5">
+                            <a href="#" class="hover:text-blue-400 transition">
+                                <h4 class="font-medium mb-2 leading-snug">
+                                    6 Key Features of Google Analytics Every Marketer Needs
+                                </h4>
+                            </a>
+                            <p class="text-gray-400 text-sm">September 5, 2025</p>
+                        </div>
+                        <div>
+                            <a href="#" class="hover:text-blue-400 transition">
+                                <h4 class="font-medium mb-2 leading-snug">
+                                    How Compliance Services Protect Your Business Reputation and Revenue
+                                </h4>
+                            </a>
+                            <p class="text-gray-400 text-sm">September 5, 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Energy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Case studies</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Company</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Career</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information Section -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-5">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-envelope text-blue-400 mt-1"></i>
+                            <a href="mailto:enquiry@bluematrixservices.com"
+                                class="text-gray-300 hover:text-blue-400 transition">
+                                enquiry@bluematrixservices.com
+                            </a>
+                        </div>
+                        <div>
+                            <div class="flex items-start space-x-3 mb-2">
+                                <i class="fas fa-phone text-blue-400 mt-1"></i>
+                                <span class="font-semibold">Sales Inquiries</span>
+                            </div>
+                            <a href="tel:+918123625502" class="text-gray-300 hover:text-blue-400 transition ml-7">
+                                +91 81236 25502
+                            </a>
+                        </div>
+                        <div>
+                            <div class="flex items-start space-x-3 mb-2">
+                                <i class="fas fa-phone text-blue-400 mt-1"></i>
+                                <span class="font-semibold">Careers & Recruitment</span>
+                            </div>
+                            <a href="tel:+918105952283" class="text-gray-300 hover:text-blue-400 transition ml-7">
+                                +91 81059 52283
+                            </a>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3">Address :</h4>
+                            <div class="space-y-4 text-gray-300">
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                                    <p class="leading-relaxed">
+                                        5th Floor, Block C4 Wing B, ELM Building, Embassy Manyata Business Park,
+                                        Outer Ring Road, Nagawara, Bangalore - 560045
+                                    </p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                                    <p class="leading-relaxed">
+                                        KVM Plaza, Club Rd, Deshpande Nagar, Hubli, India
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="flex justify-center items-center space-x-6 mt-12 mb-8">
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-blue-600 rounded-full transition">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-pink-600 rounded-full transition">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-blue-700 rounded-full transition">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-red-600 rounded-full transition">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-red-500 rounded-full transition">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-red-600 rounded-full transition">
+                    <i class="fab fa-behance"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-orange-600 rounded-full transition">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-6 text-center text-gray-400">
+                <p>© 2025 <a href="#" class="text-blue-400 hover:text-blue-300 transition">Blue Matrix Services</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <script src="scripts/DM.js"></script>
+</body>
+</html>

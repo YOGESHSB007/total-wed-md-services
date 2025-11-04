@@ -1,0 +1,853 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Total Web MD Service</title>
+    <link href="styles/CM.css" rel="stylesheet">
+    <link href="styles/output.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-[#F7FBFC]">
+    <div>
+        <header class="flex justify-between items-center px-12 py-8 shadow-md">
+            <div class="flex items-center space-x-3">
+                <a href="home.html">
+                    <img class="w-70 h-10" src="images/total-web-md-services-high-resolution-logo-transparent.png"
+                        alt="Blue Matrix Connect Logo">
+                </a>
+            </div>
+
+            <!-- Hamburger Menu Icon -->
+            <svg class="w-7 fill-blue-600 mr-5 lg:hidden cursor-pointer" id="clickToOpen"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+            </svg>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:block">
+                <nav class="flex items-center space-x-8 text-gray-800 font-medium">
+                    <div class="relative group -mr-2">
+                        <button id="blink" class="hover:text-blue-600 flex items-center -mr-1.5">
+                            Services
+                            <svg class="ml-1 w-4 h-4 text-gray-600 group-hover:text-blue-600" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <ul
+                            class="absolute hidden group-hover:block bg-white shadow-md mt-0 pt-2 rounded-lg text-sm z-30 min-w-max">
+
+                            <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-t-lg">Complaince
+                                    Managemet</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-t-lg">Solar and
+                                    Battery submission</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-t-lg">Web Development And
+                                    Services</a></li>
+                            <!-- <li><a href="#" class="block px-4 py-2 hover:bg-blue-50"></a>  Marketing</li> -->
+                            <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Digital Marketing</a>
+                            </li>
+                            <!-- <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">ALISTY Portal</a></li> -->
+                            <!-- <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">DATA FORCE Portal</a></li> -->
+                            <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Invoice</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Quotation</a></li>
+                        </ul>
+                    </div>
+                    <a href="ourTeam.html" id="blink" class="hover:text-blue-600">Our Team</a>
+                    <a href="career.html" id="blink" class="hover:text-blue-600">Career</a>
+                    <a href="contact.html" id="blink" class="hover:text-blue-600">Contact</a>
+                    <a href="Aboutus.html" id="blink" class="hover:text-blue-600">About Us</a>
+                    <a href="blogs.html" id="blink" class="hover:text-blue-600">Blogs</a>
+                    <div class="flex items-center">
+                        <!-- Wrapper for both elements with group hover -->
+                        <div class="flex items-center group">
+                            <a href="contact.html"
+                                class="rounded-full inline-block bg-[#557CFA] text-white py-2 px-4 font-medium text-xs group-hover:bg-[#4169e8] transition-all duration-300">
+                                Book Meeting
+                            </a>
+                            <a href="contact.html" class="-ml-1">
+                                <svg class="w-8 p-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45 rounded-full fill-amber-50 bg-[#557CFA] group-hover:bg-[#4169e8]"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                    <path
+                                        d="M415.8 89C423.6 70.2 444.2 60.1 463.9 65.5L469.4 67C534 84.6 589.2 147.2 573.1 223.4C536 398.4 398.3 536.1 223.3 573.2C147 589.4 84.5 534.1 66.9 469.5L65.4 464C60 444.3 70.1 423.7 88.9 415.9L186.2 375.4C202.7 368.5 221.8 373.3 233.2 387.2L271.8 434.4C342.1 399.5 398.6 341.1 431.1 269.5L387 233.4C373.1 222.1 368.4 203 375.2 186.4L415.8 89z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Mobile Sidebar Menu -->
+            <div class="fixed top-0 left-0 h-screen w-80 bg-white shadow-2xl transform -translate-x-full transition-transform duration-500 ease-in-out z-50"
+                id="hiddensidebar">
+                <div class="flex justify-between items-center p-6 border-b">
+                    <div class="text-xl font-semibold text-gray-800">Menu</div>
+                    <button type="button" id="close">
+                        <svg class="w-6 h-6 cursor-pointer text-gray-600 hover:text-gray-800"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                        </svg>
+                    </button>
+                </div>
+                <nav class="mt-4">
+                    <div class="relative">
+                        <button id="servicesToggle"
+                            class="flex items-center justify-between w-full px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                            <span>Services</span>
+                            <svg id="servicesArrow" class="w-5 h-5 text-gray-400 transition-transform duration-300"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="servicesDropdown"
+                            class="max-h-0 overflow-hidden transition-all duration-300 bg-gray-50">
+                            <a href="#"
+                                class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                                <span>Voice Support</span>
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                                <span>Compliance Management</span>
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                                <span>Digital Marketing</span>
+                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                                <span>Talent Acquisition</span>
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="ourTeam.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                        <span>Our Team</span>
+                    </a>
+                    <a href="career.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                        <span>Career</span>
+                    </a>
+                    <a href="contact.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                        <span>Contact</span>
+                    </a>
+                    <a href="Aboutus.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                        <span>About Us</span>
+                    </a>
+                    <a href="blogs.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                        <span>Blogs</span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Overlay -->
+            <div class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" id="overlay"></div>
+        </header>
+
+
+
+        <!-- Hero Section -->
+        <section class="relative h-[500px] bg-cover bg-center overflow-hidden">
+            <!-- Background Image Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/60">
+                <!-- Pattern/texture overlay -->
+                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=" 60"
+                    height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" %3E%3Cg fill="none"
+                    fill-rule="evenodd" %3E%3Cg fill="%23ffffff" fill-opacity="0.05" %3E%3Cpath
+                    d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"
+                    /%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-3xl">
+                    Compliance anchored in trust, shaped by experience
+                </h1>
+                <nav class="flex items-center space-x-2 text-sm">
+                    <a href="#" class="text-blue-300 hover:text-white transition">Home</a>
+                    <span class="text-blue-300">/</span>
+                    <span class="text-white font-medium">Compliance Management</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="py-16 md:py-24 px-6 md:px-12 lg:px-24 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <!-- Intro Text -->
+                <p class="text-center text-gray-700 text-lg md:text-xl mb-16 max-w-4xl mx-auto">
+                    With our expert compliance solutions, you're always ready to say, "Yes, we're compliant"—whenever
+                    you need it, wherever you are.
+                </p>
+
+                <!-- Main Content Grid -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+
+                    <!-- Left Side: Image and Title -->
+                    <div class="relative">
+                        <!-- Title Banner -->
+                        <div
+                            class="absolute top-8 left-0 z-10 bg-blue-800 text-white px-8 py-6 rounded-r-lg shadow-xl max-w-xs">
+                            <h2 class="text-2xl md:text-3xl font-bold leading-tight">
+                                Every year,<br>businesses face
+                            </h2>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="mt-4 rounded-lg overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop"
+                                alt="Compliance team at work" class="w-full h-[400px] object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Challenge List -->
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-start space-x-4 bg-sky-400 text-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                            <svg class="w-6 h-6 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-base md:text-lg font-medium">Rejected claims costing thousands</span>
+                        </div>
+
+                        <div
+                            class="flex items-start space-x-4 bg-sky-400 text-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                            <svg class="w-6 h-6 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-base md:text-lg font-medium">Project delays straining resources</span>
+                        </div>
+
+                        <div
+                            class="flex items-start space-x-4 bg-sky-400 text-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                            <svg class="w-6 h-6 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-base md:text-lg font-medium">Financial penalties eating into
+                                profits</span>
+                        </div>
+
+                        <div
+                            class="flex items-start space-x-4 bg-sky-400 text-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                            <svg class="w-6 h-6 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-base md:text-lg font-medium">Revenue loss from operational
+                                shutdowns</span>
+                        </div>
+
+                        <div
+                            class="flex items-start space-x-4 bg-sky-400 text-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                            <svg class="w-6 h-6 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-base md:text-lg font-medium">Damaged reputation eroding customer
+                                trust</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-12 px-6">
+            <div class="container mx-auto max-w-7xl">
+                <!-- Section Heading -->
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-600 mb-8">
+                    Our Compliance Process
+                </h2>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0">
+                    <!-- Service 1: Lead Generation & Voice Support -->
+                    <div class="service-card h-[600px]" data-service="1">
+                        <div class="service-bg service-1-default"></div>
+                        <div class="service-overlay"></div>
+                        <div class="service-content">
+                            <div class="service-number text-cyan-300">01</div>
+                            <div class="service-title">Pre-Audit Call</div>
+                            <div class="service-description">
+                                We begin with a data verification call to validate product details and customer
+                                information, preventing future claim rejections. Our specialists cross-check every
+                                detail of product specs, installation criteria, and customer data before work begins.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Compliance Management -->
+                    <div class="service-card h-[600px]" data-service="2">
+                        <div class="service-bg service-2-default"></div>
+                        <div class="service-overlay"></div>
+                        <div class="service-content">
+                            <div class="service-number text-cyan-300">02</div>
+                            <div class="service-title">Job Assignment & Installer Coordination</div>
+                            <div class="service-description">
+                                We assign jobs, guide installers, and make sure communication between all parties stays
+                                smooth and documented. Assigning jobs to coordinating with installers, we keep every
+                                stakeholder aligned and accountable.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Digital Marketing Services -->
+                    <div class="service-card h-[600px]" data-service="3">
+                        <div class="service-bg service-3-default"></div>
+                        <div class="service-overlay"></div>
+                        <div class="service-content">
+                            <div class="service-number text-cyan-300">03</div>
+                            <div class="service-title">Live Compliance Checks & Audits</div>
+                            <div class="service-description">
+                                Our auditors conduct live on-site or virtual checks and capture real-time evidence
+                                (photos, serials, signatures, forms) that meet current compliance laws and scheme
+                                guidelines. This is where we truly set ourselves apart.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 4: Talent Acquisition -->
+                    <div class="service-card h-[600px]" data-service="4">
+                        <div class="service-bg service-4-default"></div>
+                        <div class="service-overlay"></div>
+                        <div class="service-content">
+                            <div class="service-number text-cyan-300">04</div>
+                            <div class="service-title">Documentation & Certification</div>
+                            <div class="service-description">
+                                We review all collected data, compile complete evidence, and submit jobs with zero
+                                margin for error. We know what auditors look for, and we prepare each file to exceed
+                                those expectations, reducing the chance of rejection to near zero.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card h-[600px]" data-service="4">
+                        <div class="service-bg service-5-default"></div>
+                        <div class="service-overlay"></div>
+                        <div class="service-content">
+                            <div class="service-number text-cyan-300">05</div>
+                            <div class="service-title">Post-Installation Client Call</div>
+                            <div class="service-description">
+                                Our work doesn’t end when the tools are packed up. Once the installation
+                                is done, our team calls the customer to confirm satisfaction, gather
+                                feedback, and verify that the product is working as intended.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bg-white font-sans antialiased">
+            <section class="bg-[#0a1628] py-16 px-6 md:px-12 lg:px-24">
+                <div class="max-w-7xl mx-auto">
+
+                    <!-- Section Title -->
+                    <h2 class="text-blue-400 text-2xl font-semibold mb-8 tracking-wide">Non-Compliance Risks</h2>
+
+                    <!-- Main Grid Layout -->
+                    <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+                        <!-- LEFT COLUMN -->
+                        <div class="space-y-8">
+                            <!-- Risk Card 1 -->
+                            <div class="border-2 border-white rounded-lg p-6 relative">
+                                <div
+                                    class="absolute -bottom-3 left-8 w-6 h-6 bg-[#0a1628] flex items-center justify-center ">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                                <div class="text-blue-400 text-sm font-bold mb-2">01</div>
+                                <h3 class="text-white text-xl font-bold mb-3">Broken Trust</h3>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    One failed audit and your client starts doubting every promise.
+                                </p>
+                            </div>
+
+                            <!-- Risk Cards 2 & 3 -->
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <!-- Risk Card 2 -->
+                                <div class="border-2 border-white rounded-lg p-6 relative">
+                                    <div
+                                        class="absolute -bottom-3 right-8 w-6 h-6 bg-[#0a1628] flex items-center justify-center transform -rotate-90">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                    <div class="text-blue-400 text-sm font-bold mb-2">02</div>
+                                    <h3 class="text-white text-lg font-bold mb-3">Damaged Reputation</h3>
+                                    <p class="text-gray-300 text-sm leading-relaxed">
+                                        One slip-up and your client starts doubting every promise.
+                                    </p>
+                                </div>
+
+                                <!-- Risk Card 3 -->
+                                <div class="border-2 border-white rounded-lg p-6 relative">
+                                    <div
+                                        class="absolute -bottom-3 right-8 w-6 h-6 bg-[#0a1628] flex items-center justify-center transform -rotate-180">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                    <div class="text-blue-400 text-sm font-bold mb-2">03</div>
+                                    <h3 class="text-white text-lg font-bold mb-3">Lost Future Sales</h3>
+                                    <p class="text-gray-300 text-sm leading-relaxed">
+                                        Giant starts doubting every promise.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Blue Matrix Card -->
+                            <div class="  p-8 mt-8">
+                                <h3 class="text-white text-3xl md:text-4xl font-bold mb-4">
+                                    Blue Matrix Connect don't just keep you compliant
+                                </h3>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    we help you build a business people trust.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT COLUMN -->
+                        <div class="space-y-8">
+                            <!-- Main Message -->
+                            <div class="mb-8">
+                                <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">
+                                    Taking shortcuts leads to shutdowns.
+                                </h2>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    Skipping compliance is abusing risk. All the rejected rebates, project delays and
+                                    even regulatory penalties lead to costs adding up fast. But it's not just about
+                                    money.
+                                </p>
+                            </div>
+
+                            <!-- Solution Card 1 -->
+                            <div class="border-2 border-white rounded-lg p-6 relative">
+                                <div
+                                    class="absolute -bottom-3 left-8 w-6 h-6 bg-[#0a1628] flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                                <div class="text-blue-400 text-sm font-bold mb-2">01</div>
+                                <h3 class="text-white text-xl font-bold mb-3">Trust Takes Time</h3>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    But one compliance mistake can break it overnight.
+                                </p>
+                            </div>
+
+                            <!-- Solution Cards 2 & 3 -->
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <!-- Solution Card 2 -->
+                                <div class="border-2 border-white rounded-lg p-6 relative">
+                                    <div
+                                        class="absolute -bottom-3 right-8 w-6 h-6 bg-[#0a1628] flex items-center justify-center transform -rotate-90">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                    <div class="text-blue-400 text-sm font-bold mb-2">02</div>
+                                    <h3 class="text-white text-lg font-bold mb-3">Word of Mouth Is Powerful</h3>
+                                    <p class="text-gray-300 text-sm leading-relaxed">
+                                        Happy clients share wins. Frustrated ones share horrors.
+                                    </p>
+                                </div>
+
+                                <!-- Solution Card 3 -->
+                                <div class="border-2 border-white rounded-lg p-6 relative ">
+                                    <div
+                                        class="absolute -bottom-3 right-8 w-6 h-6 bg-[#0a1628] flex items-center justify-center transform -rotate-180">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                    <div class="text-blue-400 text-sm font-bold mb-2">03</div>
+                                    <h3 class="text-white text-lg font-bold mb-3">Repeat Business Needs Confidence</h3>
+                                    <p class="text-gray-300 text-sm leading-relaxed">
+                                        When customers feel secure, they return repeatedly.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- FAQ Section -->
+        <section class="py-16 px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl mx-auto">
+
+                <!-- Section Title -->
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-blue-700 relative inline-block">
+                        FAQ's
+                        <div class="absolute -bottom-2 left-0 right-0 h-1 bg-red-600"></div>
+                    </h2>
+                </div>
+
+                <!-- FAQ Grid -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-x-12 md:gap-y-10">
+
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">?</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                    What is compliance management services?
+                                </h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Compliance management services help businesses meet regulatory standards by
+                                    accurately managing audits, documentation, and submissions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">?</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                    Why does outsourcing this service matter?
+                                </h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    It saves your team time, reduces risks, and ensures precision by letting trained
+                                    experts handle complex compliance work.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">?</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                    Why choose Blue Matrix Connect for your compliance outsourcing?
+                                </h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Our expert team ensures your submissions are approval-ready so you don't have to
+                                    deal with delays or rework. We manage the full lifecycle, from pre-audit
+                                    coordination and live installation checks to gathering evidence for final
+                                    submissions
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">?</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                    What is an environmental compliance audit?
+                                </h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    An environmental audit checks if your business follows sustainability regulations
+                                    and helps you avoid costly environmental penalties.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">?</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                    What happens if your business is non-compliant?
+                                </h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Non-compliance can lead to rejected claims, heavy penalties, operational delays, and
+                                    damage to your brand's credibility.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">?</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-blue-700 mb-3">
+                                    What makes Blue Matrix different from in-house compliance management?
+                                </h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    We combine sector expertise with hands-on execution. Also, compliance is high-stakes
+                                    and detail-intensive. With our expert team, you get peace of mind, reduced risk of
+                                    rejection, and a process that meets or exceeds standards without burdening your
+                                    internal resources.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <div class="bg-gray-100">
+
+
+
+        <!-- Footer Section -->
+        <footer class="bg-black text-white">
+            <div class="container mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- Latest Blogs Section -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Latest Blogs</h3>
+                        <div class="space-y-6">
+                            <!-- Blog 1 -->
+                            <div class="border-b border-gray-700 pb-5">
+                                <a href="#" class="hover:text-blue-400 transition">
+                                    <h4 class="font-medium mb-2 leading-snug">
+                                        The Compliance Management System Behind Faster Submissions and Zero Rejections
+                                    </h4>
+                                </a>
+                                <p class="text-gray-400 text-sm">September 11, 2025</p>
+                            </div>
+
+                            <!-- Blog 2 -->
+                            <div class="border-b border-gray-700 pb-5">
+                                <a href="#" class="hover:text-blue-400 transition">
+                                    <h4 class="font-medium mb-2 leading-snug">
+                                        6 Key Features of Google Analytics Every Marketer Needs
+                                    </h4>
+                                </a>
+                                <p class="text-gray-400 text-sm">September 5, 2025</p>
+                            </div>
+
+                            <!-- Blog 3 -->
+                            <div>
+                                <a href="#" class="hover:text-blue-400 transition">
+                                    <h4 class="font-medium mb-2 leading-snug">
+                                        How Compliance Services Protect Your Business Reputation and Revenue
+                                    </h4>
+                                </a>
+                                <p class="text-gray-400 text-sm">September 5, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Section -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Quick links</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="text-gray-300 hover:text-blue-400 transition">Services</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-300 hover:text-blue-400 transition">Energy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-300 hover:text-blue-400 transition">Case studies</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-300 hover:text-blue-400 transition">Company</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-300 hover:text-blue-400 transition">Career</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-300 hover:text-blue-400 transition">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-300 hover:text-blue-400 transition">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-300 hover:text-blue-400 transition">Blogs</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Information Section -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-5">
+                            <!-- Email -->
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-envelope text-blue-400 mt-1"></i>
+                                <a href="mailto:enquiry@bluematrixservices.com"
+                                    class="text-gray-300 hover:text-blue-400 transition">
+                                    enquiry@bluematrixservices.com
+                                </a>
+                            </div>
+
+                            <!-- Sales Inquiries -->
+                            <div>
+                                <div class="flex items-start space-x-3 mb-2">
+                                    <i class="fas fa-phone text-blue-400 mt-1"></i>
+                                    <span class="font-semibold">Sales Inquiries</span>
+                                </div>
+                                <a href="tel:+918123625502" class="text-gray-300 hover:text-blue-400 transition ml-7">
+                                    +91 81236 25502
+                                </a>
+                            </div>
+
+                            <!-- Careers & Recruitment -->
+                            <div>
+                                <div class="flex items-start space-x-3 mb-2">
+                                    <i class="fas fa-phone text-blue-400 mt-1"></i>
+                                    <span class="font-semibold">Careers & Recruitment</span>
+                                </div>
+                                <a href="tel:+918105952283" class="text-gray-300 hover:text-blue-400 transition ml-7">
+                                    +91 81059 52283
+                                </a>
+                            </div>
+
+                            <!-- Address -->
+                            <div>
+                                <h4 class="font-bold mb-3">Address :</h4>
+                                <div class="space-y-4 text-gray-300">
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                                        <p class="leading-relaxed">
+                                            5th Floor, Block C4 Wing B, ELM Building, Embassy Manyata Business Park,
+                                            Outer Ring Road, Nagawara, Bangalore - 560045
+                                        </p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                                        <p class="leading-relaxed">
+                                            KVM Plaza, Club Rd, Deshpande Nagar, Hubli, India
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="flex justify-center items-center space-x-6 mt-12 mb-8">
+                    <a href="#"
+                        class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-blue-600 rounded-full transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#"
+                        class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-pink-600 rounded-full transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#"
+                        class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-blue-700 rounded-full transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#"
+                        class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-red-600 rounded-full transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#"
+                        class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-red-500 rounded-full transition">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                    <a href="#"
+                        class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-red-600 rounded-full transition">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                    <a href="#"
+                        class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-orange-600 rounded-full transition">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="border-t border-gray-800 pt-6 text-center text-gray-400">
+                    <p>© 2025 <a href="#" class="text-blue-400 hover:text-blue-300 transition">Blue Matrix Services</a>.
+                        All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll  -->
+        <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+            <img src="images\icons8-top-arrow-48.png" alt="top" srcset="">
+        </button>
+    </div>
+    <script src="scripts/CM.js"></script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,149 @@
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.animate-blink {
+    animation: blink 1s ease-in-out infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+
+.service-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.service-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+}
+
+.service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(30, 58, 138, 0.6), rgba(30, 58, 138, 0.8));
+    transition: all 0.5s ease;
+}
+
+.service-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.service-number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    transition: all 0.5s ease;
+}
+
+.service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    transition: all 0.5s ease;
+}
+
+.service-description {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.5s ease;
+    max-width: 90%;
+}
+
+/* Hover States */
+.service-card:hover .service-description {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.service-card:hover .service-overlay {
+    background: linear-gradient(to bottom, rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.95));
+}
+
+/* Different background images for each service */
+.service-1-default {
+    background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800');
+}
+
+.service-1-hover {
+    background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800');
+}
+
+.service-2-default {
+    background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800');
+}
+
+.service-2-hover {
+    background-image: url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800');
+}
+
+.service-3-default {
+    background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800');
+}
+
+.service-3-hover {
+    background-image: url('https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800');
+}
+
+.service-4-default {
+    background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800');
+}
+
+.service-4-hover {
+    background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800');
+}
+.service-5-default {
+    background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800');
+}
+
+.service-5-hover {
+    background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800');
+}
+
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}

@@ -1,0 +1,104 @@
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+.animate-blink {
+    animation: blink 2s ease-in-out infinite;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #557CFA;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(85, 124, 250, 0.4);
+}
+
+.scroll-to-top:hover {
+    background: #4169e8;
+    transform: translateY(-5px);
+}
+
+.invoice-feature-card {
+    transition: all 0.3s ease;
+}
+
+.invoice-feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.pricing-card {
+    transition: all 0.4s ease;
+}
+
+.pricing-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.feature-highlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.feature-highlight:hover::before {
+    left: 100%;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.animate-blink {
+    animation: blink 1s ease-in-out infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}

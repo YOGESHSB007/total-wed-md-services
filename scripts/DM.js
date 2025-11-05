@@ -64,3 +64,30 @@
          }
      });
  });
+
+
+
+ document.querySelectorAll("#blink").forEach((anchor) => {
+    const dot = document.createElement("div");
+    dot.className = "w-1.5 h-1.5 bg-[#769FCD] rounded-full animate-blink mr-1";
+  
+    const wrapper = document.createElement("div");
+    wrapper.className = "flex items-center";
+  
+    const clonedAnchor = anchor.cloneNode(true);
+    wrapper.appendChild(dot);
+    wrapper.appendChild(clonedAnchor);
+  
+    anchor.replaceWith(wrapper);
+  
+    dot.style.visibility = "hidden";
+  
+    wrapper.addEventListener("mouseover", () => {
+      dot.style.visibility = "visible";
+    });
+  
+    wrapper.addEventListener("mouseout", () => {
+      dot.style.visibility = "hidden";
+    });
+  });
+  

@@ -1,31 +1,28 @@
 // Blinking dot effect for anchors
 document.querySelectorAll("#blink").forEach((anchor) => {
-  const dot = document.createElement("div");
-  dot.className = "w-1.5 h-1.5 bg-[#769FCD] rounded-full animate-blink mr-1";
-
-  const wrapper = document.createElement("div");
-  wrapper.className = "flex items-center";
-
-  // Clone anchor and add to wrapper
-  const clonedAnchor = anchor.cloneNode(true);
-  wrapper.appendChild(dot);
-  wrapper.appendChild(clonedAnchor);
-
-  // Replace original anchor with wrapper
-  anchor.replaceWith(wrapper);
-
-  // Hide dot initially
-  dot.style.visibility = "hidden";
-
-  // Show/hide on hover
-  wrapper.addEventListener("mouseover", () => {
+    const dot = document.createElement("div");
+    dot.className = "w-1.5 h-1.5 bg-[#769FCD] rounded-full animate-blink mr-1";
+  
+    const wrapper = document.createElement("div");
+    wrapper.className = "flex items-center";
+  
+    const clonedAnchor = anchor.cloneNode(true);
+    wrapper.appendChild(dot);
+    wrapper.appendChild(clonedAnchor);
+  
+    anchor.replaceWith(wrapper);
+  
+    dot.style.visibility = "hidden";
+  
+    wrapper.addEventListener("mouseover", () => {
       dot.style.visibility = "visible";
-  });
-
-  wrapper.addEventListener("mouseout", () => {
+    });
+  
+    wrapper.addEventListener("mouseout", () => {
       dot.style.visibility = "hidden";
+    });
   });
-});
+  
 
 // Services dropdown toggle
 const servicesToggle = document.getElementById('servicesToggle');
@@ -99,7 +96,7 @@ const observer = new IntersectionObserver((entries) => {
                   default:
                       entry.target.style.transform = 'translateX(0) translateY(0) scale(1)';
               }
-          }, index * 100);
+          }, index );
           observer.unobserve(entry.target);
       }
   });
@@ -177,18 +174,7 @@ document.querySelectorAll('.border-2').forEach((card) => {
   });
 });
 
-// Add CSS for blink animation if not already defined
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-  }
-  .animate-blink {
-      animation: blink 1.5s ease-in-out infinite;
-  }
-`;
-document.head.appendChild(style);
+
 
 // Log initialization for debugging
 console.log('All animations initialized successfully');

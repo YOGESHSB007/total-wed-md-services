@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Total Web MD Service</title>
+    <link href="styles/form.css" rel="stylesheet">
+    <link href="styles/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50">
+
+
+    <header class="flex justify-between items-center px-12 py-8 shadow-md">
+        <div class="flex items-center space-x-3">
+            <a href="home.html">
+                <img class="w-70 h-10" src="images/total-web-md-services-high-resolution-logo-transparent.png"
+                    alt="Blue Matrix Connect Logo">
+            </a>
+        </div>
+
+        <!-- Hamburger Menu Icon -->
+        <svg class="w-7 fill-blue-600 mr-5 lg:hidden cursor-pointer" id="clickToOpen" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24">
+            <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+        </svg>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:block">
+            <nav class="flex items-center space-x-8 text-gray-800 font-medium">
+                <div class="relative group -mr-2">
+                    <button id="blink" class="hover:text-blue-600 flex items-center -mr-1.5">
+                        Services
+                        <svg class="ml-1 w-4 h-4 text-gray-600 group-hover:text-blue-600" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <ul
+                        class="absolute hidden group-hover:block bg-white shadow-md mt-0 pt-2 rounded-lg text-sm z-30 min-w-max">
+
+                        <li><a href="ComplainceManagemet.html"
+                                class="block px-4 py-2 hover:bg-blue-50 rounded-t-lg">Complaince Managemet</a></li>
+                        <li><a href="SB.html" class="block px-4 py-2 hover:bg-blue-50 rounded-t-lg">Solar and
+                                Battery submission</a></li>
+                        <li><a href="WEB.html" class="block px-4 py-2 hover:bg-blue-50 rounded-t-lg">Web Development And
+                                Services</a></li>
+                        <!-- <li><a href="#" class="block px-4 py-2 hover:bg-blue-50"></a>  Marketing</li> -->
+                        <li><a href="DM.html" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Digital
+                                Marketing</a></li>
+                        <!-- <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">ALISTY Portal</a></li> -->
+                        <!-- <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">DATA FORCE Portal</a></li> -->
+                        <li><a href="invoice.html" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Invoice</a>
+                        </li>
+                        <li><a href="quotation.html" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Quotation</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="ourTeam.html" id="blink" class="hover:text-blue-600">Our Team</a>
+                <div class="flex items-center">
+                    <div class="w-1.5 h-1.5 bg-[#769FCD] rounded-full animate-blink mr-1"></div>
+                    <a class="text-blue-600" href="career.html">Career</a>
+                </div>
+                <a href="contact.html" id="blink" class="hover:text-blue-600">Contact</a>
+                <a href="Aboutus.html" id="blink" class="hover:text-blue-600">About Us</a>
+                <a href="blogs.html" id="blink" class="hover:text-blue-600">Blogs</a>
+                <div class="flex items-center">
+                    <!-- Wrapper for both elements with group hover -->
+                    <div class="flex items-center group">
+                        <a href="contact.html"
+                            class="rounded-full inline-block bg-[#557CFA] text-white py-2 px-4 font-medium text-xs group-hover:bg-[#4169e8] transition-all duration-300">
+                            Book Meeting
+                        </a>
+                        <a href="contact.html" class="-ml-1">
+                            <svg class="w-8 p-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-45 rounded-full fill-amber-50 bg-[#557CFA] group-hover:bg-[#4169e8]"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                <path
+                                    d="M415.8 89C423.6 70.2 444.2 60.1 463.9 65.5L469.4 67C534 84.6 589.2 147.2 573.1 223.4C536 398.4 398.3 536.1 223.3 573.2C147 589.4 84.5 534.1 66.9 469.5L65.4 464C60 444.3 70.1 423.7 88.9 415.9L186.2 375.4C202.7 368.5 221.8 373.3 233.2 387.2L271.8 434.4C342.1 399.5 398.6 341.1 431.1 269.5L387 233.4C373.1 222.1 368.4 203 375.2 186.4L415.8 89z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Sidebar Menu -->
+        <div class="fixed top-0 left-0 h-screen w-80 bg-white shadow-2xl transform -translate-x-full transition-transform duration-500 ease-in-out z-50"
+            id="hiddensidebar">
+            <div class="flex justify-between items-center p-6 border-b">
+                <div class="text-xl font-semibold text-gray-800">Menu</div>
+                <button type="button" id="close">
+                    <svg class="w-6 h-6 cursor-pointer text-gray-600 hover:text-gray-800"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="mt-4">
+                <div class="relative">
+                    <button id="servicesToggle"
+                        class="flex items-center justify-between w-full px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                        <span>Services</span>
+                        <svg id="servicesArrow" class="w-5 h-5 text-gray-400 transition-transform duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="servicesDropdown" class="max-h-0 overflow-hidden transition-all duration-300 bg-gray-50">
+                        <a href="ComplainceManagemet.html"
+                            class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                            <span>Compliance Management</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="SB.html"
+                            class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                            <span>Solar and Battery submission</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="WEB.html"
+                            class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                            <span>Web Development And Services</span>
+                            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="DM.html"
+                            class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                            <span>Digital Marketing</span>
+                            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="invoice.html"
+                            class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                            <span>Invoice</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="quotation.html"
+                            class="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 border-b">
+                            <span>Quotataion</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <a href="ourTeam.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                    <span>Our Team</span>
+                </a>
+                <a href="career.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                    <span>Career</span>
+                </a>
+                <a href="contact.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                    <span>Contact</span>
+                </a>
+                <a href="Aboutus.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                    <span>About Us</span>
+                </a>
+                <a href="blogs.html" class="flex items-center px-6 py-4 text-gray-700 hover:bg-gray-50 border-b">
+                    <span>Blogs</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Overlay -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 hidden z-40" id="overlay"></div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 py-20 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-24 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+                Join Our Team
+            </h1>
+            <p class="text-xl text-blue-200 mb-8 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
+                Take the next step in your career with Blue Matrix Connect
+            </p>
+            <div class="flex items-center justify-center space-x-4 text-blue-200 animate-fade-in"
+                style="animation-delay: 0.4s;">
+                <a href="career.html" class="hover:text-white transition">Career</a>
+                <span>/</span>
+                <span class="text-white font-medium">Application Form</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Indicator -->
+    <div class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between text-sm">
+                <span class="text-gray-600">Application Progress</span>
+                <span id="progressText" class="text-blue-600 font-semibold">0% Complete</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div id="progressBar" class="progress-bar rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Form Section -->
+    <section class="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <!-- Success Message -->
+            <div id="successMessage"
+                class="success-message mb-8 bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-500 text-3xl mr-4"></i>
+                    <div>
+                        <h3 class="text-xl font-bold text-green-800 mb-2">Application Submitted Successfully!</h3>
+                        <p class="text-green-700">Thank you for applying. We'll review your application and get back to
+                            you soon.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                <div class="mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Application Form</h2>
+                    <p class="text-gray-600">Please fill in all the required fields carefully</p>
+                </div>
+
+                <form id="applicationForm" class="space-y-8">
+                    <!-- Personal Information Section -->
+                    <div class="fade-in-up">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-blue-500">
+                            <i class="fas fa-user text-blue-600 mr-2"></i>Personal Information
+                        </h3>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    First Name <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="firstName" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Enter your first name">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Last Name <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="lastName" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Enter your last name">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Email Address <span class="text-red-500">*</span>
+                                </label>
+                                <input type="email" name="email" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="your.email@example.com">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Phone Number <span class="text-red-500">*</span>
+                                </label>
+                                <input type="tel" name="phone" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="+91 98765 43210">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Current Address <span class="text-red-500">*</span>
+                                </label>
+                                <textarea name="address" required rows="3"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Enter your complete address"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    City <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="city" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Enter your city">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    State <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="state" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Enter your state">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    PIN Code <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="pincode" required pattern="[0-9]{6}"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Enter 6-digit PIN code">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Date of Birth <span class="text-red-500">*</span>
+                                </label>
+                                <input type="date" name="dob" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Position Details Section -->
+                    <div class="fade-in-up">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-blue-500">
+                            <i class="fas fa-briefcase text-blue-600 mr-2"></i>Position Details
+                        </h3>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Position Applied For <span class="text-red-500">*</span>
+                                </label>
+                                <select name="position" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition">
+                                    <option value="">Select Position</option>
+                                    <option value="International Voice Process">International Voice Process</option>
+                                    <option value="Backend Associate">Backend Associate</option>
+                                    <option value="Customer Service Representative">Customer Service Representative
+                                    </option>
+                                    <option value="Web Developer">Web Developer</option>
+                                    <option value="Digital Marketing Specialist">Digital Marketing Specialist</option>
+                                    <option value="Compliance Officer">Compliance Officer</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Department <span class="text-red-500">*</span>
+                                </label>
+                                <select name="department" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition">
+                                    <option value="">Select Department</option>
+                                    <option value="Voice">Voice</option>
+                                    <option value="Non-Voice">Non-Voice</option>
+                                    <option value="IT & Development">IT & Development</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Operations">Operations</option>
+                                    <option value="Finance">Finance</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Preferred Location <span class="text-red-500">*</span>
+                                </label>
+                                <select name="location" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition">
+                                    <option value="">Select Location</option>
+                                    <option value="Bangalore">Bangalore</option>
+                                    <option value="Hubli">Hubli</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Remote">Remote</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Expected Salary (Annual) <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="expectedSalary" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="e.g., 5,00,000 - 6,00,000">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Notice Period <span class="text-red-500">*</span>
+                                </label>
+                                <select name="noticePeriod" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition">
+                                    <option value="">Select Notice Period</option>
+                                    <option value="Immediate">Immediate</option>
+                                    <option value="15 Days">15 Days</option>
+                                    <option value="1 Month">1 Month</option>
+                                    <option value="2 Months">2 Months</option>
+                                    <option value="3 Months">3 Months</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Available to Join <span class="text-red-500">*</span>
+                                </label>
+                                <input type="date" name="joinDate" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Experience Section -->
+                    <div class="fade-in-up">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-blue-500">
+                            <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>Professional Experience
+                        </h3>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Total Experience <span class="text-red-500">*</span>
+                                </label>
+                                <select name="totalExperience" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition">
+                                    <option value="">Select Experience</option>
+                                    <option value="Fresher">Fresher</option>
+                                    <option value="0-1 years">0-1 years</option>
+                                    <option value="1-3 years">1-3 years</option>
+                                    <option value="3-5 years">3-5 years</option>
+                                    <option value="5-10 years">5-10 years</option>
+                                    <option value="10+ years">10+ years</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Highest Qualification <span class="text-red-500">*</span>
+                                </label>
+                                <select name="qualification" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition">
+                                    <option value="">Select Qualification</option>
+                                    <option value="High School">High School</option>
+                                    <option value="Diploma">Diploma</option>
+                                    <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                    <option value="Master's Degree">Master's Degree</option>
+                                    <option value="PhD">PhD</option>
+                                </select>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Current/Last Company
+                                </label>
+                                <input type="text" name="currentCompany"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Enter company name">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Current/Last Designation
+                                </label>
+                                <input type="text" name="currentDesignation"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Enter your designation">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Current CTC (Annual)
+                                </label>
+                                <input type="text" name="currentCTC"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="e.g., 4,50,000">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Key Skills <span class="text-red-500">*</span>
+                                </label>
+                                <textarea name="skills" required rows="3"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="List your key skills (e.g., Communication, Problem Solving, MS Excel, etc.)"></textarea>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Brief Work Experience Summary
+                                </label>
+                                <textarea name="workSummary" rows="4"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Briefly describe your work experience and key achievements"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information Section -->
+                    <div class="fade-in-up">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-blue-500">
+                            <i class="fas fa-info-circle text-blue-600 mr-2"></i>Additional Information
+                        </h3>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    LinkedIn Profile
+                                </label>
+                                <input type="url" name="linkedin"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="https://linkedin.com/in/yourprofile">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Portfolio/Website
+                                </label>
+                                <input type="url" name="portfolio"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="https://yourportfolio.com">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    How did you hear about us? <span class="text-red-500">*</span>
+                                </label>
+                                <select name="source" required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition">
+                                    <option value="">Select Source</option>
+                                    <option value="LinkedIn">LinkedIn</option>
+                                    <option value="Job Portal">Job Portal (Naukri, Indeed, etc.)</option>
+                                    <option value="Company Website">Company Website</option>
+                                    <option value="Referral">Employee Referral</option>
+                                    <option value="Social Media">Social Media</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Why do you want to join Blue Matrix Connect? <span class="text-red-500">*</span>
+                                </label>
+                                <textarea name="whyJoin" required rows="4"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Tell us what motivates you to join our team"></textarea>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Additional Comments or Questions
+                                </label>
+                                <textarea name="comments" rows="3"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg transition"
+                                    placeholder="Any additional information you'd like to share"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resume Upload Section -->
+                    <div class="fade-in-up">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-3 border-b-2 border-blue-500">
+                            <i class="fas fa-file-upload text-blue-600 mr-2"></i>Upload Documents
+                        </h3>
+
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Resume/CV <span class="text-red-500">*</span>
+                                    <span class="text-sm font-normal text-gray-500">(PDF, DOC, DOCX - Max 5MB)</span>
+                                </label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="resumeUpload" name="resume" accept=".pdf,.doc,.docx"
+                                        required>
+                                    <label for="resumeUpload" id="resumeLabel" class="file-upload-label">
+                                        <div class="text-center">
+                                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-3"></i>
+                                            <p class="text-gray-600 font-medium mb-1">Click to upload your resume</p>
+                                            <p class="text-sm text-gray-500">or drag and drop</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div id="resumeFileName" class="mt-2 text-sm text-gray-600"></div>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2">
+                                    Cover Letter (Optional)
+                                    <span class="text-sm font-normal text-gray-500">(PDF, DOC, DOCX - Max 5MB)</span>
+                                </label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="coverLetterUpload" name="coverLetter"
+                                        accept=".pdf,.doc,.docx">
+                                    <label for="coverLetterUpload" id="coverLetterLabel" class="file-upload-label">
+                                        <div class="text-center">
+                                            <i class="fas fa-file-alt text-4xl text-gray-400 mb-3"></i>
+                                            <p class="text-gray-600 font-medium mb-1">Click to upload cover letter</p>
+                                            <p class="text-sm text-gray-500">or drag and drop</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div id="coverLetterFileName" class="mt-2 text-sm text-gray-600"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="fade-in-up">
+                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                            <div class="flex items-start space-x-3">
+                                <input type="checkbox" id="terms" name="terms" required
+                                    class="mt-1 w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="terms" class="text-gray-700">
+                                    I hereby declare that all the information provided above is true and accurate to the
+                                    best of my knowledge. I understand that any false information may result in the
+                                    rejection of my application or termination of employment. <span
+                                        class="text-red-500">*</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
+                        <button type="submit" id="submitBtn"
+                            class="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-lg rounded-lg hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+                            <span>Submit Application</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <button type="button" onclick="window.location.href='career.html'"
+                            class="w-full sm:w-auto px-12 py-4 bg-gray-200 text-gray-700 font-bold text-lg rounded-lg hover:bg-gray-300 transform hover:scale-105 transition-all duration-300">
+                            Cancel
+                        </button>
+                    </div>
+
+                    <!-- Loading Indicator -->
+                    <div id="loadingIndicator" class="hidden flex flex-col items-center justify-center py-8">
+                        <div class="loader mb-4"></div>
+                        <p class="text-gray-600 font-medium">Submitting your application...</p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Help Section -->
+            <div class="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-200">
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-question-circle text-blue-600 text-2xl mt-1"></i>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Need Help?</h4>
+                        <p class="text-gray-700 mb-3">
+                            If you face any issues while filling the form or have questions about the position, please
+                            contact our HR department.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-sm">
+                            <a href="mailto:enquiry@bluematrixservices.com"
+                                class="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2">
+                                <i class="fas fa-envelope"></i>
+                                enquiry@bluematrixservices.com
+                            </a>
+                            <a href="tel:+918105952283"
+                                class="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2">
+                                <i class="fas fa-phone"></i>
+                                +91 81059 52283
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-black text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Latest Blogs</h3>
+                    <div class="space-y-6">
+                        <div class="border-b border-gray-700 pb-5">
+                            <a href="#" class="hover:text-blue-400 transition">
+                                <h4 class="font-medium mb-2 leading-snug">
+                                    The Compliance Management System Behind Faster Submissions and Zero Rejections
+                                </h4>
+                            </a>
+                            <p class="text-gray-400 text-sm">September 11, 2025</p>
+                        </div>
+
+                        <div class="border-b border-gray-700 pb-5">
+                            <a href="#" class="hover:text-blue-400 transition">
+                                <h4 class="font-medium mb-2 leading-snug">
+                                    6 Key Features of Google Analytics Every Marketer Needs
+                                </h4>
+                            </a>
+                            <p class="text-gray-400 text-sm">September 5, 2025</p>
+                        </div>
+
+                        <div>
+                            <a href="#" class="hover:text-blue-400 transition">
+                                <h4 class="font-medium mb-2 leading-snug">
+                                    How Compliance Services Protect Your Business Reputation and Revenue
+                                </h4>
+                            </a>
+                            <p class="text-gray-400 text-sm">September 5, 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Energy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Case studies</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Company</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Career</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-5">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-envelope text-blue-400 mt-1"></i>
+                            <a href="mailto:enquiry@bluematrixservices.com"
+                                class="text-gray-300 hover:text-blue-400 transition">
+                                enquiry@bluematrixservices.com
+                            </a>
+                        </div>
+
+                        <div>
+                            <div class="flex items-start space-x-3 mb-2">
+                                <i class="fas fa-phone text-blue-400 mt-1"></i>
+                                <span class="font-semibold">Sales Inquiries</span>
+                            </div>
+                            <a href="tel:+918123625502" class="text-gray-300 hover:text-blue-400 transition ml-7">
+                                +91 81236 25502
+                            </a>
+                        </div>
+
+                        <div>
+                            <div class="flex items-start space-x-3 mb-2">
+                                <i class="fas fa-phone text-blue-400 mt-1"></i>
+                                <span class="font-semibold">Careers & Recruitment</span>
+                            </div>
+                            <a href="tel:+918105952283" class="text-gray-300 hover:text-blue-400 transition ml-7">
+                                +91 81059 52283
+                            </a>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold mb-3">Address :</h4>
+                            <div class="space-y-4 text-gray-300">
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                                    <p class="leading-relaxed">
+                                        5th Floor, Block C4 Wing B, ELM Building, Embassy Manyata Business Park,
+                                        Outer Ring Road, Nagawara, Bangalore - 560045
+                                    </p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                                    <p class="leading-relaxed">
+                                        KVM Plaza, Club Rd, Deshpande Nagar, Hubli, India
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center space-x-6 mt-12 mb-8">
+                <a href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-blue-600 rounded-full transition">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-pink-600 rounded-full transition">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-blue-700 rounded-full transition">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-red-600 rounded-full transition">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-red-500 rounded-full transition">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
+                <a href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-red-600 rounded-full transition">
+                    <i class="fab fa-behance"></i>
+                </a>
+                <a href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-orange-600 rounded-full transition">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 text-center text-gray-400">
+                <p>© 2025 <a href="#" class="text-blue-400 hover:text-blue-300 transition">Blue Matrix Services</a>. All
+                    rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up text-white text-xl"></i>
+    </button>
+
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>
+
+    <script>
+
+        (function () {
+            emailjs.init({
+                publicKey: "GsA8D6VfCmJUcVJMK"   // 👈 Your Public Key
+            });
+        })();
+    </script>
+    <script src="scripts/form.js"></script>
+</body>
+
+</html>

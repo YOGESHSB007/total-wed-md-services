@@ -825,17 +825,27 @@
     </button>
 
 
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>
+    <!-- ✅ EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+    <!-- ✅ Initialize AFTER SDK is loaded -->
     <script>
-
-        (function () {
-            emailjs.init({
-                publicKey: "GsA8D6VfCmJUcVJMK"   // 👈 Your Public Key
-            });
-        })();
+        window.addEventListener('load', () => {
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init({
+                    publicKey: "UGKBi-mrXbvaXo9wb" // Replace with your actual public key
+                });
+                console.log("✅ EmailJS initialized successfully");
+            } else {
+                console.error("❌ EmailJS SDK failed to load!");
+            }
+        });
     </script>
-    <script src="scripts/form.js"></script>
+
+    <!-- ✅ Load your custom form script AFTER EmailJS is ready -->
+    <script src="scripts/form.js" defer></script>
+
+
 </body>
 
 </html>

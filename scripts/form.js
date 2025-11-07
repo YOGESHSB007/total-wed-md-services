@@ -173,32 +173,118 @@
 
 
 
- form.addEventListener('submit', async function(e) {
+ // Form Submission with detailed error logging
+form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    
+    console.log('Form submission started...');
+    
     const submitBtn = document.getElementById('submitBtn');
     const loadingIndicator = document.getElementById('loadingIndicator');
     const successMessage = document.getElementById('successMessage');
 
+    // Disable button and show loading
     submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>Submitting...</span> <i class="fas fa-spinner fa-spin"></i>';
     loadingIndicator.classList.remove('hidden');
     form.style.opacity = '0.5';
 
-    try {
-        await emailjs.sendForm('service_7dn0e8t', 'template_zr42uyb', form);
+    // Get file info
+    const resumeFile = document.getElementById('resumeUpload').files[0];
+    const coverLetterFile = document.getElementById('coverLetterUpload').files[0];
+    
+    // Prepare template parameters - MUST match your EmailJS template variables
+    const templateParams = {
+        to_email: 'shivanandhb03@gmail.com', // Replace with your actual email
+        firstName: form.firstName.value,
+        lastName: form.lastName.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        address: form.address.value,
+        city: form.city.value,
+        state: form.state.value,
+        pincode: form.pincode.value,
+        dob: form.dob.value,
+        position: form.position.value,
+        department: form.department.value,
+        location: form.location.value,
+        expectedSalary: form.expectedSalary.value,
+        noticePeriod: form.noticePeriod.value,
+        joinDate: form.joinDate.value,
+        totalExperience: form.totalExperience.value,
+        qualification: form.qualification.value,
+        currentCompany: form.currentCompany.value || 'N/A',
+        currentDesignation: form.currentDesignation.value || 'N/A',
+        currentCTC: form.currentCTC.value || 'N/A',
+        skills: form.skills.value,
+        workSummary: form.workSummary.value || 'N/A',
+        linkedin: form.linkedin.value || 'N/A',
+        portfolio: form.portfolio.value || 'N/A',
+        source: form.source.value,
+        whyJoin: form.whyJoin.value,
+        comments: form.comments.value || 'N/A',
+        resumeFileName: resumeFile ? resumeFile.name : 'Not uploaded',
+        coverLetterFileName: coverLetterFile ? coverLetterFile.name : 'Not uploaded'
+    };
 
+    console.log('Template Parameters:', templateParams);
+    console.log('Service ID: service_7dn0e8t');
+    console.log('Template ID: template_zr42uyb');
+
+    try {
+        // Send email using EmailJS
+        const response = await emailjs.send(
+            'service_7dn0e8t',  // Your Service ID
+            'template_zr42uyb', // Your Template ID (create new one for job applications)
+            templateParams
+        );
+
+        console.log('✅ SUCCESS!', response.status, response.text);
+
+        // Hide loading and form
         loadingIndicator.classList.add('hidden');
         form.style.display = 'none';
         successMessage.classList.add('show');
+        successMessage.style.display = 'block';
         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+        // Redirect after 5 seconds
         setTimeout(() => {
             window.location.href = 'career.html';
         }, 5000);
+
     } catch (error) {
-        console.error('EmailJS Error:', error);
-        alert('Error submitting application. Please try again.');
+        console.error('❌ FAILED...', error);
+        
+        // Detailed error logging
+        console.error('Error Details:', {
+            text: error.text,
+            status: error.status,
+            message: error.message
+        });
+        
+        // Show specific error message
+        let errorMessage = 'Error submitting application:\n\n';
+        
+        if (error.text) {
+            errorMessage += `Error: ${error.text}\n`;
+        }
+        if (error.status) {
+            errorMessage += `Status Code: ${error.status}\n`;
+        }
+        
+        errorMessage += '\nPlease check:\n';
+        errorMessage += '1. Your internet connection\n';
+        errorMessage += '2. All required fields are filled\n';
+        errorMessage += '3. Email format is correct\n\n';
+        errorMessage += 'Or contact us directly at: hr@bluematrixservices.com';
+        
+        alert(errorMessage);
+        
+        // Reset form state
         loadingIndicator.classList.add('hidden');
         submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Submit Application</span> <i class="fas fa-paper-plane"></i>';
         form.style.opacity = '1';
     }
 });

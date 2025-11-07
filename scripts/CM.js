@@ -175,6 +175,28 @@ document.querySelectorAll('.border-2').forEach((card) => {
 });
 
 
+// Show/hide button based on scroll position
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.style.display = "flex";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+});
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+// Initial state
+if (scrollToTopBtn) {
+  scrollToTopBtn.style.display = "none";
+}
+
 
 // Log initialization for debugging
 console.log('All animations initialized successfully');

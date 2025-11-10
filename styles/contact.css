@@ -57,7 +57,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(136, 156, 222, 0.85), rgba(18, 54, 183, 0.6));
+    background: linear-gradient(135deg, rgba(142, 165, 229, 0.9) 0%, rgba(17, 32, 55, 0.8) 100%);
 }
 
 .wave-separator {
@@ -169,4 +169,13 @@
 .scroll-to-top:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(37, 99, 235, 0.6);
+}
+
+
+.social-icon {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
 }

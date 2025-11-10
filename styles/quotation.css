@@ -213,3 +213,12 @@ header {
     position: relative;
     z-index: 50;
 }
+
+
+.social-icon {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}

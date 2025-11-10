@@ -35,22 +35,26 @@
  });
 
  // Scroll to Top Button
- const scrollToTop = document.getElementById('scrollToTop');
+ const scrollToTopBtn = document.getElementById("scrollToTop");
 
- window.addEventListener('scroll', () => {
+ window.addEventListener("scroll", () => {
      if (window.pageYOffset > 300) {
-         scrollToTop.classList.add('show');
+         scrollToTopBtn.style.display = "flex";
      } else {
-         scrollToTop.classList.remove('show');
+         scrollToTopBtn.style.display = "none";
      }
  });
-
- scrollToTop.addEventListener('click', () => {
+ 
+ function scrollToTop() {
      window.scrollTo({
          top: 0,
-         behavior: 'smooth'
+         behavior: "smooth",
      });
- });
+ }
+ 
+ if (scrollToTopBtn) {
+     scrollToTopBtn.style.display = "none";
+ }
 
  // Animate elements on scroll
  const observerOptions = {

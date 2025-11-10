@@ -1,3 +1,11 @@
+.social-icon {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
 @keyframes blink {
 
     0%,

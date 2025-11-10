@@ -198,5 +198,54 @@ if (scrollToTopBtn) {
 }
 
 
+function activateTab(tabNumber) {
+  // Remove active class from all tabs and panels
+  for (let i = 1; i <= 5; i++) {
+      const tab = document.getElementById(`tab-${i}`);
+      const panel = document.getElementById(`panel-${i}`);
+      const pulseBorder = panel.querySelector('.pulse-border');
+      
+      tab.classList.remove('active');
+      panel.classList.remove('active');
+      pulseBorder.classList.remove('active');
+  }
+
+  // Add active class to selected tab and panel
+  const activeTab = document.getElementById(`tab-${tabNumber}`);
+  const activePanel = document.getElementById(`panel-${tabNumber}`);
+  const activePulseBorder = activePanel.querySelector('.pulse-border');
+  
+  activeTab.classList.add('active');
+  activePanel.classList.add('active');
+  activePulseBorder.classList.add('active');
+
+  // Smooth scroll to active panel
+  setTimeout(() => {
+      activePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+
+  // Re-trigger animations
+  const animations = activePanel.querySelectorAll('.animate-scale-up, .animate-fade-in');
+  animations.forEach(el => {
+      el.style.animation = 'none';
+      setTimeout(() => {
+          el.style.animation = '';
+      }, 10);
+  });
+}
+
+// Auto-cycle through tabs (optional - remove if not needed)
+let currentTab = 1;
+setInterval(() => {
+  currentTab = (currentTab % 5) + 1;
+  // Uncomment the line below to enable auto-cycling
+  // activateTab(currentTab);
+}, 5000);
+
+// Initialize first tab on load
+document.addEventListener('DOMContentLoaded', () => {
+  activateTab(1);
+});
+
 // Log initialization for debugging
 console.log('All animations initialized successfully');

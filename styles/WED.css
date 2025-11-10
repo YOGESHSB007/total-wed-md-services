@@ -84,30 +84,36 @@
     display: none;
 }
 
+.social-icon {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
 .scroll-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #557CFA, #4169e8);
-    border-radius: 50%;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: rgb(209, 22, 22);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(85, 124, 250, 0.4);
-}
-
-.scroll-to-top.show {
-    opacity: 1;
 }
 
 .scroll-to-top:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.6);
 }
 
 .gradient-text {

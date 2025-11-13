@@ -339,48 +339,400 @@
     </section>
 
     <!-- Development Process Section -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Development Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes drawLine {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .process-step {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .process-step:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .process-step:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .process-step:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .process-step:nth-child(4) {
+            animation-delay: 0.7s;
+        }
+
+        .step-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .step-card:hover::before {
+            left: 100%;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .check-item {
+            opacity: 0;
+            animation: slideInLeft 0.4s ease-out forwards;
+        }
+
+        .step-card:hover .check-item {
+            animation: slideInLeft 0.4s ease-out forwards;
+        }
+
+        .check-item:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .check-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .check-item:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .check-item:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .number-badge {
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .connector-line {
+            position: absolute;
+            top: 50%;
+            right: -2rem;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, currentColor, transparent);
+            z-index: -1;
+            animation: drawLine 1s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        @media (max-width: 1024px) {
+            .connector-line {
+                display: none;
+            }
+        }
+
+        .title-animate {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .subtitle-animate {
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .icon-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
     <section class="py-16 px-6 md:px-12 lg:px-24 bg-white">
         <div class="max-w-7xl mx-auto">
+            <!-- Header -->
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Our Development Journey</h2>
-                <p class="text-gray-600 text-lg">From concept to launch, we've got you covered</p>
+                <h2 class="title-animate text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    Our Development Journey
+                </h2>
+                <p class="subtitle-animate text-gray-600 text-lg">
+                    From concept to launch, we've got you covered
+                </p>
             </div>
 
+            <!-- Process Steps -->
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Step 1: Discovery -->
                 <div class="process-step relative">
-                    <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-2xl text-white h-full transform hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-6xl font-bold opacity-20 mb-4">01</div>
+                    <div class="step-card bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-2xl text-white h-full shadow-xl">
+                        <div class="relative">
+                            <div class="number-badge text-6xl font-bold opacity-20 mb-4">01</div>
+                            <div class="absolute top-0 left-0 w-16 h-16 bg-white/20 rounded-full pulse-ring"></div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <i class="fas fa-search icon-float text-4xl mb-4 opacity-80"></i>
+                        </div>
+                        
                         <h3 class="text-2xl font-bold mb-4">Discovery</h3>
-                        <p class="text-blue-100">Deep dive into your business goals, target audience, and competitive landscape</p>
-                        <div class="mt-6 space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-check-circle"></i>
+                        <p class="text-blue-100 mb-6 leading-relaxed">
+                            Deep dive into your business goals, target audience, and competitive landscape
+                        </p>
+                        
+                        <div class="space-y-3">
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-300"></i>
+                                <span class="text-sm">Business Analysis</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-300"></i>
+                                <span class="text-sm">Market Research</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-300"></i>
+                                <span class="text-sm">Requirements Gathering</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-300"></i>
                                 <span class="text-sm">API Development</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="connector-line hidden lg:block text-purple-300"></div>
+                </div>
+
+                <!-- Step 2: Design -->
+                <div class="process-step relative">
+                    <div class="step-card bg-gradient-to-br from-pink-500 to-rose-600 p-8 rounded-2xl text-white h-full shadow-xl">
+                        <div class="relative">
+                            <div class="number-badge text-6xl font-bold opacity-20 mb-4">02</div>
+                            <div class="absolute top-0 left-0 w-16 h-16 bg-white/20 rounded-full pulse-ring"></div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <i class="fas fa-pencil-ruler icon-float text-4xl mb-4 opacity-80"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Design</h3>
+                        <p class="text-pink-100 mb-6 leading-relaxed">
+                            Create stunning, user-friendly interfaces that engage and convert
+                        </p>
+                        
+                        <div class="space-y-3">
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-yellow-300"></i>
+                                <span class="text-sm">UI/UX Design</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-yellow-300"></i>
+                                <span class="text-sm">Wireframing</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-yellow-300"></i>
+                                <span class="text-sm">Prototyping</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-yellow-300"></i>
+                                <span class="text-sm">Brand Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="connector-line hidden lg:block text-rose-300"></div>
+                </div>
+
+                <!-- Step 3: Development -->
+                <div class="process-step relative">
+                    <div class="step-card bg-gradient-to-br from-orange-500 to-amber-600 p-8 rounded-2xl text-white h-full shadow-xl">
+                        <div class="relative">
+                            <div class="number-badge text-6xl font-bold opacity-20 mb-4">03</div>
+                            <div class="absolute top-0 left-0 w-16 h-16 bg-white/20 rounded-full pulse-ring"></div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <i class="fas fa-code icon-float text-4xl mb-4 opacity-80"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Development</h3>
+                        <p class="text-orange-100 mb-6 leading-relaxed">
+                            Build robust, scalable solutions using cutting-edge technologies
+                        </p>
+                        
+                        <div class="space-y-3">
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-blue-300"></i>
+                                <span class="text-sm">Frontend Development</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-blue-300"></i>
+                                <span class="text-sm">Backend Development</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-blue-300"></i>
+                                <span class="text-sm">Database Design</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-blue-300"></i>
+                                <span class="text-sm">API Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="connector-line hidden lg:block text-amber-300"></div>
+                </div>
+
+                <!-- Step 4: Launch -->
+                <div class="process-step relative">
+                    <div class="step-card bg-gradient-to-br from-green-500 to-teal-600 p-8 rounded-2xl text-white h-full shadow-xl">
+                        <div class="relative">
+                            <div class="number-badge text-6xl font-bold opacity-20 mb-4">04</div>
+                            <div class="absolute top-0 left-0 w-16 h-16 bg-white/20 rounded-full pulse-ring"></div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <i class="fas fa-rocket icon-float text-4xl mb-4 opacity-80"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Launch</h3>
+                        <p class="text-green-100 mb-6 leading-relaxed">
+                            Deploy, monitor, and optimize for peak performance
+                        </p>
+                        
+                        <div class="space-y-3">
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-purple-300"></i>
+                                <span class="text-sm">Quality Testing</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-purple-300"></i>
+                                <span class="text-sm">Deployment</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-purple-300"></i>
+                                <span class="text-sm">Performance Monitoring</span>
+                            </div>
+                            <div class="check-item flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-purple-300"></i>
+                                <span class="text-sm">Ongoing Support</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="process-step relative">
-                    <div class="bg-gradient-to-br from-green-500 to-teal-600 p-8 rounded-2xl text-white h-full transform hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-6xl font-bold opacity-20 mb-4">04</div>
-                        <h3 class="text-2xl font-bold mb-4">Launch</h3>
-                        <p class="text-green-100">Deploy, monitor, and optimize for peak performance</p>
-                        <div class="mt-6 space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-check-circle"></i>
-                                <span class="text-sm">Quality Testing</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-check-circle"></i>
-                                <span class="text-sm">Deployment</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-check-circle"></i>
-                                <span class="text-sm">Ongoing Support</span>
-                            </div>
-                        </div>
+            </div>
+
+            <!-- Bottom Call to Action -->
+            <div class="mt-16 text-center process-step" style="animation-delay: 0.9s;">
+                <div class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <span class="text-lg font-bold">Ready to Start Your Journey?</span>
+                        <i class="fas fa-arrow-right"></i>
                     </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="mt-16 grid md:grid-cols-4 gap-6">
+                <div class="process-step text-center p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl" style="animation-delay: 1s;">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">100%</div>
+                    <div class="text-gray-600 text-sm">Success Rate</div>
+                </div>
+                <div class="process-step text-center p-6 bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl" style="animation-delay: 1.1s;">
+                    <div class="text-4xl font-bold text-pink-600 mb-2">24/7</div>
+                    <div class="text-gray-600 text-sm">Support Available</div>
+                </div>
+                <div class="process-step text-center p-6 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl" style="animation-delay: 1.2s;">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">500+</div>
+                    <div class="text-gray-600 text-sm">Projects Delivered</div>
+                </div>
+                <div class="process-step text-center p-6 bg-gradient-to-br from-green-50 to-teal-50 rounded-xl" style="animation-delay: 1.3s;">
+                    <div class="text-4xl font-bold text-green-600 mb-2">50+</div>
+                    <div class="text-gray-600 text-sm">Expert Team</div>
                 </div>
             </div>
         </div>

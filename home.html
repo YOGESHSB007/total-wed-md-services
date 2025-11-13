@@ -49,7 +49,7 @@
                             <li><a href="DM.html" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Digital Marketing</a></li>
                             <!-- <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">ALISTY Portal</a></li> -->
                             <!-- <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">DATA FORCE Portal</a></li> -->
-                            <li><a href="invoice.html" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Invoice</a></li>
+                            <li><a href="invandQu.html" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Invoice</a></li>
                             <li><a href="quotation.html" class="block px-4 py-2 hover:bg-blue-50 rounded-b-lg">Quotation</a></li>
                         </ul>
                     </div>
@@ -182,8 +182,6 @@
         </header>
 
         <div class="relative h-screen overflow-hidden">
-
-
             <!-- Video Backgrounds -->
             <div class="absolute inset-0">
                 <video class="video-slide active" muted loop playsinline preload="auto">
@@ -196,31 +194,49 @@
                     <source src="images/video (1).mp4" type="video/mp4">
                 </video>
             </div>
-
+    
             <!-- Navigation Arrows -->
             <button id="left-arrow" class="nav-arrow">‹</button>
             <button id="right-arrow" class="nav-arrow">›</button>
-
+    
             <!-- Video Indicators -->
             <div class="video-indicators">
                 <div class="indicator active" data-index="0"></div>
                 <div class="indicator" data-index="1"></div>
                 <div class="indicator" data-index="2"></div>
             </div>
-
-
-
-
-            <!-- Overlay Content -->
-            <div
-                class="relative z-10 flex flex-col justify-center items-center text-center h-full text-white bg-black/40">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 slide-in-left">Connect With The Best in Biz</h1>
-                <p class="text-lg md:text-xl mb-6 slide-in-left">Quality leads is not easy, but we make it possible for
-                    you.</p>
-                <button
-                    class="fade-in-up bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition ">
-                    Learn More
-                </button>
+    
+            <!-- Overlay Content for Video 1 -->
+            <div class="overlay-content active">
+                <div class="flex flex-col justify-center items-center text-center h-full text-white bg-black/40">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 slide-in-left">Connect with Excellence. <br> Grow with Confidence.</h1>
+                    <p class="text-lg md:text-xl mb-6 slide-in-left">We make business smarter, faster, and future-ready.</p>
+                    <button onclick="alert('Learn More - Video 1')" class="fade-in-up bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-full transition">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Overlay Content for Video 2 -->
+            <div class="overlay-content">
+                <div class="flex flex-col justify-center items-center text-center h-full text-white bg-black/40">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 slide-in-left">Transform Your Business. <br> Achieve Your Goals.</h1>
+                    <p class="text-lg md:text-xl mb-6 slide-in-left">Innovative solutions that drive success and growth.</p>
+                    <button onclick="alert('Discover More - Video 2')" class="fade-in-up bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full transition">
+                        Discover More
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Overlay Content for Video 3 -->
+            <div class="overlay-content">
+                <div class="flex flex-col justify-center items-center text-center h-full text-white bg-black/40">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 slide-in-left">Innovation Meets Strategy. <br> Results You Can Trust.</h1>
+                    <p class="text-lg md:text-xl mb-6 slide-in-left">Empowering businesses with cutting-edge technology.</p>
+                    <button onclick="alert('Get Started - Video 3')" class="fade-in-up bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-full transition">
+                        Get Started
+                    </button>
+                </div>
             </div>
         </div>
         <div class="bg-gray-50">
@@ -229,13 +245,11 @@
 
 
                 <div class="container mx-auto px-6 py-16 text-center max-w-5xl">
-                    <p class="text-gray-700 text-sm leading-relaxed">
-                        Success needs more than just a great product or service. It needs reliable management, accurate
-                        finances, and full
-                        compliance to reach its prime. Blue Matrix's expert business process outsourcing services manage
-                        all
-                        these tasks
-                        and more for your business. Connect with us to maximize your results!
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        Success in today’s competitive world demands more than innovation or a strong product. It requires streamlined compliance, digital visibility, and reliable operational support.
+Totalweb MD Services provides expert business solutions from compliance management to digital growth and web development managing all the essential processes that empower your business to perform at its best.
+Partner with us to elevate your efficiency, compliance, and growth potential.
+
                     </p>
                 </div>
             </div>
@@ -310,7 +324,8 @@
 
 
                                     <p class="text-gray-700 text-lg leading-relaxed ">
-                                        Complimentary review of your existing business plan and The processes.
+                                        Complimentary review of your current business systems, documentation, and processes.
+
                                     </p>
                                 </div>
 
@@ -323,7 +338,8 @@
 
 
                                     <p class="text-gray-700 text-lg leading-relaxed ">
-                                        Tailored outsourcing strategies to enhance reach and customer engagement.
+                                        Custom outsourcing and digital strategies to expand your brand reach and improve engagement.
+
                                     </p>
                                 </div>
 
@@ -336,7 +352,8 @@
 
 
                                     <p class="text-gray-700 text-lg leading-relaxed ">
-                                        Professional assistance to optimize operations and ensure sustainable growth
+                                        End-to-end professional support to optimize your operations and ensure sustainable growth.
+
                                     </p>
                                 </div>
                             </div>
@@ -380,16 +397,16 @@
                         <!-- Right Side - Content -->
                         <div class="text-white">
                             <h2 class="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                                Turbo Charging Your Business
+                                Empowering Business Growth
                             </h2>
                             <p class="text-sm md:text-lg mb-8 leading-relaxed text-blue-50">
-                                Supercharge your marketing, manage operations, and find new opportunities. We make your
-                                business process outsourcing decision worthwhile with our Human + AI process that
-                                delivers measurable results.
+                                Accelerate your marketing, streamline compliance, and unlock new opportunities with Totalweb MD Services.
+Our Human + AI integrated approach ensures every project delivers measurable outcomes whether in compliance, digital strategy, or technology-driven operations.
+
                             </p>
                             <button onclick="window.location.href='contact.html'"
                                 class="bg-blue-400 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                Book a Strategy Call
+                                Book a Strategy Consultation
                             </button>
                         </div>
                     </div>
@@ -413,23 +430,23 @@
                             <!-- Description Paragraphs -->
                             <div class="space-y-6 text-gray-700 text-lg leading-relaxed">
                                 <p class="text-item">
-                                    Our planned digital marketing strategies with high-ranking keywords have helped
-                                    numerous companies rank their business, from creating a website to optimising it for
-                                    conversions and user experience
+                                    Our strategic approach blends compliance accuracy with digital innovation. From crafting high-performing websites to executing SEO and ad campaigns, we help businesses rank higher, attract better leads, and convert efficiently.With every service under one roof Compliance, Marketing, Websites, Solar Rebates, and Documentation we simplify business complexity into clarity.
+
+
+
                                 </p>
 
-                                <p class="text-item">
-                                    You receive every service needed for your business to soar higher under one roof.
-                                </p>
+                                
 
                                 <p class="text-item">
-                                    Your business is safe with us because we create what you envision
+                                    
+                                    Your vision drives our mission we build what you imagine, and we deliver what you expect.
                                 </p>
                             </div>
 
                             <!-- Call to Action Text -->
                             <h3 class="text-2xl md:text-3xl font-bold text-blue-500 text-item">
-                                Stop searching for the best – you've just found it!
+                                Stop searching for the best you’ve just found it.
                             </h3>
                         </div>
 
@@ -509,7 +526,7 @@
                 <div class="container mx-auto max-w-7xl">
                     <!-- Section Heading -->
                     <h2 class="text-4xl md:text-5xl font-bold text-blue-600 mb-8">
-                        Our Services
+                        Our Core Services
                     </h2>
 
                     <!-- Services Grid -->
@@ -519,12 +536,14 @@
                             <div class="service-bg service-1-default"></div>
                             <div class="service-overlay"></div>
                             <div class="service-content">
-                                <div class="service-number text-cyan-300">01</div>
-                                <div class="service-title">Lead Generation & Voice Support</div>
+                                <div  >
+                                    <div class="service-number text-cyan-300">01</div>
+                                    <div class="service-title ">Compliance Management</div>
+                                </div>
                                 <div class="service-description">
-                                    78% of businesses buy from the first responder. Our AI-powered outreach gets you the
-                                    first in line, connecting you with quality leads and taking your conversion rate by
-                                    up to 35%.
+                                    Never risk your business reputation with a combination of poor documentation or regulatory gaps.
+With some of 99.9% accuracy, our VEU compliance experts how can handle audits, portal submissions.
+
                                 </div>
                             </div>
                         </div>
@@ -535,12 +554,11 @@
                             <div class="service-overlay"></div>
                             <div class="service-content">
                                 <div class="service-number text-cyan-300">02</div>
-                                <div class="service-title">Compliance Management</div>
+                                <div class="service-title">Digital Marketing Services</div>
                                 <div class="service-description">
-                                    Don't take risks with compliance handling, as regulatory fines can cost your
-                                    business millions. With 99.9% accuracy, Bluematrix's experts guarantee clear
-                                    documentation and audit readiness, keeping your business penalty-proof and you
-                                    stress-free.
+                                    Smart marketing drives measurable growth.
+We design data-driven campaigns using SEO, Google Ads, and content marketing to help your brand stand out online and generate consistent leads with strong ROI.
+
                                 </div>
                             </div>
                         </div>
@@ -551,10 +569,12 @@
                             <div class="service-overlay"></div>
                             <div class="service-content">
                                 <div class="service-number text-cyan-300">03</div>
-                                <div class="service-title">Digital Marketing Services</div>
+                                <div class="service-title">Website <br> Development</div>
                                 <div class="service-description">
-                                    Marketing strategies implemented by analyzing real-time customer behavior grow
-                                    revenue 5X faster. We curate high-converting campaigns that maximize your ROI.
+                                    Your website is your brand’s first impression.
+We build secure, mobile-friendly, and SEO-optimized websites using WordPress and custom the code tailored to your company business needs and designed to convert.
+
+
                                 </div>
                             </div>
                         </div>
@@ -565,11 +585,11 @@
                             <div class="service-overlay"></div>
                             <div class="service-content">
                                 <div class="service-number text-cyan-300">04</div>
-                                <div class="service-title">Talent Acquisition</div>
+                                <div class="service-title">Solar & Battery Rebate Submissions</div>
                                 <div class="service-description">
-                                    No business wants to lose money on bad hires, which can cost them 30% of an
-                                    employee's annual salary. Toss this work to us- we will find your business the best
-                                    IT and non-IT talent quickly without risk with our expert sourcing and screening.
+                                    We simplify the entire Solar VIC submission process from the quote creation to the rebate approval.
+Our experts will handle all documentation, DNS approvals, and audits, ensuring the fast processing and compliance accuracy.
+
                                 </div>
                             </div>
                         </div>
@@ -582,18 +602,18 @@
                 <div class="container mx-auto max-w-6xl">
                     <!-- Main Heading -->
                     <h1 class="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-8 fade-in">
-                        Business Process Outsourcing Redefined
+                        Business Process Excellence Redefined
                     </h1>
 
                     <!-- Description Paragraph -->
                     <p class="text-gray-700 text-lg leading-relaxed text-center max-w-5xl mx-auto fade-in">
-                        Business process outsourcing (BPO) goes beyond just saving costs on hiring, it's a strategic
-                        tool for growth, but only if you choose the right people. Choosing the right BPO provider for
-                        your company and outsourcing key business functions means faster execution, better customer
-                        experiences, and more profitability. That's where our industry expertise comes in. Based on the
-                        deep research our expert teams have conducted, we have devised strategies that help us give
-                        insights to B2B businesses to improve their efficiency, reduce operational bottlenecks, and stay
-                        ahead of the competition, making us the most reliable BPO service provider for your business.
+                        Business success today isn’t just about cost efficiency it’s about strategic precision.
+Choosing Totalweb MD Services as your partner means faster execution, smarter operations, and greater profitability.
+
+Our proven expertise across compliance, marketing, and technology empowers your business to operate seamlessly, reduce bottlenecks, and outperform competitors.
+That’s what makes us one of the most reliable and forward-thinking multi-service providers in the industry.
+
+
                     </p>
                 </div>
             </section>
@@ -603,15 +623,15 @@
                 <div class="container mx-auto max-w-6xl">
                     <!-- Sub Heading -->
                     <h2 class="text-3xl md:text-4xl font-bold text-blue-600 text-center mb-8 fade-in">
-                        Business Expansion with Our Global Network
+                        Expanding Horizons with Our Global Network
                     </h2>
 
                     <!-- Blue Box with Content -->
                     <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl shadow-2xl p-8 md:p-12 slide-in">
                         <p class="text-white text-lg md:text-xl leading-relaxed text-center">
-                            Bluematrix's expert team and advanced tools handle complex tasks with precision. Many
-                            companies, including those in the healthcare business process outsourcing sector, have seen
-                            increased efficiency and customer satisfaction through strategic outsourcing with us.
+                            Our professional team and advanced digital tools manage complex processes with ease and precision.
+We’ve helped businesses across industries including energy, retail, and digital marketing enhance efficiency and customer satisfaction through smart outsourcing solutions.
+
                         </p>
                     </div>
                 </div>
@@ -621,11 +641,9 @@
             <section class="bg-gradient-to-r from-blue-700 to-blue-800 py-16 px-6">
                 <div class="container mx-auto max-w-7xl">
                     <p class="text-white text-lg md:text-xl leading-relaxed text-center fade-in">
-                        Providing services worldwide, including business process outsourcing in the USA and business
-                        process outsourcing in Australia, has given us a unique understanding of global markets and
-                        regional business needs, especially when it comes to sustainability-focused brands. Every
-                        project is handled with a commitment, understanding your business as deeply as you do. That's
-                        why our clients stick with us and grow with us.
+                        Operating across multiple regions, we understand diverse market needs and business compliance frameworks.
+Every project we handle reflects our dedication to excellence, accuracy, and trust values that keep our clients growing with us year after year.
+
                     </p>
                 </div>
             </section>
@@ -636,7 +654,7 @@
                 <div class="container mx-auto max-w-7xl">
                     <!-- Section Heading -->
                     <h2 class="text-4xl md:text-5xl font-bold text-blue-600 text-center mb-16">
-                        Case Study
+                        Case Studies
                     </h2>
 
                     <!-- Cards Grid -->
@@ -651,11 +669,13 @@
 
                             <!-- Content -->
                             <div class="p-6 space-y-4">
+                                <h3 class="font-bold text-blue-500 mb-2">Digital Marketing & SEO Optimization</h3>
                                 <!-- Challenge -->
                                 <div>
                                     <h3 class="font-bold text-gray-800 mb-2">Challenge:</h3>
                                     <p class="text-gray-600 text-sm">
-                                        Transition from traditional to digital marketing.
+                                        Improve digital presence and lead flow.
+
                                     </p>
                                 </div>
 
@@ -663,8 +683,8 @@
                                 <div>
                                     <h3 class="font-bold text-gray-800 mb-2">Solutions:</h3>
                                     <p class="text-gray-600 text-sm">
-                                        Improved search rankings (+40%), increased leads (+50%), boosted ad engagement
-                                        (+35%), optimized website performance.
+                                        Executed SEO strategy, optimized website speed, and ran targeted ad campaigns.
+
                                     </p>
                                 </div>
 
@@ -672,8 +692,8 @@
                                 <div>
                                     <h3 class="font-bold text-gray-800 mb-2">Results:</h3>
                                     <p class="text-gray-600 text-sm">
-                                        Improved visibility and traffic, leading to higher engagement across all
-                                        channels. Boosted conversions through better ad performance and SEO.
+                                        +50% increase in leads, +40% higher engagement, and improved keyword ranking.
+
                                     </p>
                                 </div>
 
@@ -692,10 +712,12 @@
                             <!-- Content -->
                             <div class="p-6 space-y-4">
                                 <!-- Challenge -->
+                                <h3 class="font-bold text-blue-500 mb-2">Compliance Management</h3>
                                 <div>
                                     <h3 class="font-bold text-gray-800 mb-2">Challenge:</h3>
                                     <p class="text-gray-600 text-sm">
-                                        Simplify compliance processes to support business expansion.
+                                        Manage large-scale VEU submissions efficiently.
+
                                     </p>
                                 </div>
 
@@ -703,8 +725,7 @@
                                 <div>
                                     <h3 class="font-bold text-gray-800 mb-2">Solutions:</h3>
                                     <p class="text-gray-600 text-sm">
-                                        Managed pre-audit coordination, live installation verification, and made sure
-                                        all necessary evidence was gathered for final submissions.
+                                        Streamlined documentation, RFI handling, and live audit tracking.
                                     </p>
                                 </div>
 
@@ -712,8 +733,8 @@
                                 <div>
                                     <h3 class="font-bold text-gray-800 mb-2">Results:</h3>
                                     <p class="text-gray-600 text-sm">
-                                        Enabled faster approvals and smoother audits. Helped the client expand
-                                        operations without compliance delays.
+                                        Reduced approval delays, ensured 100% accuracy, and improved workflow speed.
+
                                     </p>
                                 </div>
 
@@ -732,10 +753,12 @@
                             <!-- Content -->
                             <div class="p-6 space-y-4">
                                 <!-- Challenge -->
+                                <h3 class="font-bold text-blue-500 mb-2">Solar & Battery Rebates</h3>
                                 <div>
                                     <h3 class="font-bold text-gray-800 mb-2">Challenge:</h3>
                                     <p class="text-gray-600 text-sm">
-                                        Lead generation for energy upgrades
+                                        Simplify rebate submissions and reduce rejection rates.
+
                                     </p>
                                 </div>
 
@@ -743,8 +766,8 @@
                                 <div>
                                     <h3 class="font-bold text-gray-800 mb-2">Solutions:</h3>
                                     <p class="text-gray-600 text-sm">
-                                        Create a user-friendly, SEO-optimized website with targeted lead-generation
-                                        strategies.
+                                        Created automated submission checklists, DNS tracking, and final submission validation.
+
                                     </p>
                                 </div>
 
@@ -752,8 +775,8 @@
                                 <div>
                                     <h3 class="font-bold text-gray-800 mb-2">Results:</h3>
                                     <p class="text-gray-600 text-sm">
-                                        Drove a 60% increase in site visits with stronger lead quality. Improved
-                                        targeting for long-term customer acquisition.
+                                        Achieved faster rebate approvals and improved client satisfaction by 60%.
+.
                                     </p>
                                 </div>
 

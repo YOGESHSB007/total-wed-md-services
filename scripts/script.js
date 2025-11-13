@@ -60,138 +60,138 @@ document.querySelectorAll("#blink").forEach((anchor) => {
 });
 
 // ============ OPTIMIZED VIDEO SLIDER ============
-let currentSlide = 0;
-let interval;
-const slides = document.querySelectorAll(".video-slide");
-const indicators = document.querySelectorAll(".indicator");
-const totalSlides = slides.length;
-let isFirstVideoLoaded = false;
+// let currentSlide = 0;
+// let interval;
+// const slides = document.querySelectorAll(".video-slide");
+// const indicators = document.querySelectorAll(".indicator");
+// const totalSlides = slides.length;
+// let isFirstVideoLoaded = false;
 
-// Add preload attribute to all videos programmatically
-slides.forEach((video, index) => {
-  video.setAttribute('preload', 'auto');
+// // Add preload attribute to all videos programmatically
+// slides.forEach((video, index) => {
+//   video.setAttribute('preload', 'auto');
   
-  // Remove autoplay from non-active videos
-  if (index !== 0) {
-    video.removeAttribute('autoplay');
-  }
+//   // Remove autoplay from non-active videos
+//   if (index !== 0) {
+//     video.removeAttribute('autoplay');
+//   }
   
-  // Handle video loading
-  video.addEventListener('loadeddata', function() {
-    console.log(`Video ${index + 1} loaded`);
+//   // Handle video loading
+//   video.addEventListener('loadeddata', function() {
+//     console.log(`Video ${index + 1} loaded`);
     
-    // Start playing the first video once it's loaded
-    if (index === 0 && !isFirstVideoLoaded) {
-      isFirstVideoLoaded = true;
-      this.play().catch(err => console.log('Autoplay prevented:', err));
-      startAutoSlide();
-    }
-  });
+//     // Start playing the first video once it's loaded
+//     if (index === 0 && !isFirstVideoLoaded) {
+//       isFirstVideoLoaded = true;
+//       this.play().catch(err => console.log('Autoplay prevented:', err));
+//       startAutoSlide();
+//     }
+//   });
   
-  // Preload next video when current is playing
-  video.addEventListener('playing', function() {
-    const nextIndex = (currentSlide + 1) % totalSlides;
-    slides[nextIndex].load();
-  });
-});
+//   // Preload next video when current is playing
+//   video.addEventListener('playing', function() {
+//     const nextIndex = (currentSlide + 1) % totalSlides;
+//     slides[nextIndex].load();
+//   });
+// });
 
-function showSlide(index) {
-  // Pause all videos and remove active class
-  slides.forEach((slide) => {
-    slide.classList.remove("active");
-    slide.pause();
-  });
+// function showSlide(index) {
+//   // Pause all videos and remove active class
+//   slides.forEach((slide) => {
+//     slide.classList.remove("active");
+//     slide.pause();
+//   });
   
-  indicators.forEach((indicator) => indicator.classList.remove("active"));
+//   indicators.forEach((indicator) => indicator.classList.remove("active"));
 
-  // Activate current slide
-  slides[index].classList.add("active");
-  indicators[index].classList.add("active");
+//   // Activate current slide
+//   slides[index].classList.add("active");
+//   indicators[index].classList.add("active");
 
-  // Play current video with error handling
-  slides[index].play().catch(err => {
-    console.log('Video play error:', err);
-  });
+//   // Play current video with error handling
+//   slides[index].play().catch(err => {
+//     console.log('Video play error:', err);
+//   });
   
-  // Trigger overlay content animations
-  triggerOverlayAnimations();
-}
+//   // Trigger overlay content animations
+//   triggerOverlayAnimations();
+// }
 
-function triggerOverlayAnimations() {
-  const h1 = document.querySelector('.relative.z-10 h1');
-  const p = document.querySelector('.relative.z-10 p');
-  const button = document.querySelector('.relative.z-10 button');
+// function triggerOverlayAnimations() {
+//   const h1 = document.querySelector('.relative.z-10 h1');
+//   const p = document.querySelector('.relative.z-10 p');
+//   const button = document.querySelector('.relative.z-10 button');
   
-  // Remove and re-add classes for h1
-  if (h1) {
-    h1.classList.remove('slide-in-left');
-    void h1.offsetWidth; // Force reflow
-    h1.classList.add('slide-in-left');
-  }
+//   // Remove and re-add classes for h1
+//   if (h1) {
+//     h1.classList.remove('slide-in-left');
+//     void h1.offsetWidth; // Force reflow
+//     h1.classList.add('slide-in-left');
+//   }
   
-  // Remove and re-add classes for p
-  if (p) {
-    p.classList.remove('slide-in-left');
-    void p.offsetWidth; // Force reflow
-    p.classList.add('slide-in-left');
-  }
+//   // Remove and re-add classes for p
+//   if (p) {
+//     p.classList.remove('slide-in-left');
+//     void p.offsetWidth; // Force reflow
+//     p.classList.add('slide-in-left');
+//   }
   
-  // Remove and re-add classes for button
-  if (button) {
-    button.classList.remove('fade-in-up');
-    void button.offsetWidth; // Force reflow
-    button.classList.add('fade-in-up');
-  }
-}
+//   // Remove and re-add classes for button
+//   if (button) {
+//     button.classList.remove('fade-in-up');
+//     void button.offsetWidth; // Force reflow
+//     button.classList.add('fade-in-up');
+//   }
+// }
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % totalSlides;
-  showSlide(currentSlide);
-}
+// function nextSlide() {
+//   currentSlide = (currentSlide + 1) % totalSlides;
+//   showSlide(currentSlide);
+// }
 
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-  showSlide(currentSlide);
-}
+// function prevSlide() {
+//   currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+//   showSlide(currentSlide);
+// }
 
-function startAutoSlide() {
-  interval = setInterval(nextSlide, 6000);
-}
+// function startAutoSlide() {
+//   interval = setInterval(nextSlide, 6000);
+// }
 
-function resetAutoSlide() {
-  clearInterval(interval);
-  startAutoSlide();
-}
+// function resetAutoSlide() {
+//   clearInterval(interval);
+//   startAutoSlide();
+// }
 
-// Wait for first video to load before starting auto-slide
-// (startAutoSlide is now called in the loadeddata event listener above)
+// // Wait for first video to load before starting auto-slide
+// // (startAutoSlide is now called in the loadeddata event listener above)
 
-document.getElementById("right-arrow").addEventListener("click", function () {
-  nextSlide();
-  resetAutoSlide();
-});
+// document.getElementById("right-arrow").addEventListener("click", function () {
+//   nextSlide();
+//   resetAutoSlide();
+// });
 
-document.getElementById("left-arrow").addEventListener("click", function () {
-  prevSlide();
-  resetAutoSlide();
-});
+// document.getElementById("left-arrow").addEventListener("click", function () {
+//   prevSlide();
+//   resetAutoSlide();
+// });
 
-indicators.forEach((indicator, index) => {
-  indicator.addEventListener("click", function () {
-    currentSlide = index;
-    showSlide(currentSlide);
-    resetAutoSlide();
-  });
-});
+// indicators.forEach((indicator, index) => {
+//   indicator.addEventListener("click", function () {
+//     currentSlide = index;
+//     showSlide(currentSlide);
+//     resetAutoSlide();
+//   });
+// });
 
-// Pause on hover
-const videoContainer = document.querySelector(".relative.h-screen");
-if (videoContainer) {
-  videoContainer.addEventListener("mouseenter", () => clearInterval(interval));
-  videoContainer.addEventListener("mouseleave", () => {
-    if (isFirstVideoLoaded) startAutoSlide();
-  });
-}
+// // Pause on hover
+// const videoContainer = document.querySelector(".relative.h-screen");
+// if (videoContainer) {
+//   videoContainer.addEventListener("mouseenter", () => clearInterval(interval));
+//   videoContainer.addEventListener("mouseleave", () => {
+//     if (isFirstVideoLoaded) startAutoSlide();
+//   });
+// }
 
 // Counter Animation Function
 function animateCounter(element, target, duration = 2000) {
@@ -376,4 +376,144 @@ if (messageShort && messageFull) {
   messageFull.addEventListener("input", function () {
     messageShort.value = this.value;
   });
+}
+
+
+// ============ VIDEO SLIDER WITH OVERLAY CONTENT ============
+let currentSlide = 0;
+let interval;
+const slides = document.querySelectorAll(".video-slide");
+const overlayContents = document.querySelectorAll(".overlay-content");
+const indicators = document.querySelectorAll(".indicator");
+const totalSlides = slides.length;
+let isFirstVideoLoaded = false;
+
+// Add preload attribute to all videos programmatically
+slides.forEach((video, index) => {
+    video.setAttribute('preload', 'auto');
+    
+    // Remove autoplay from non-active videos
+    if (index !== 0) {
+        video.removeAttribute('autoplay');
+    }
+    
+    // Handle video loading
+    video.addEventListener('loadeddata', function() {
+        console.log(`Video ${index + 1} loaded`);
+        
+        // Start playing the first video once it's loaded
+        if (index === 0 && !isFirstVideoLoaded) {
+            isFirstVideoLoaded = true;
+            this.play().catch(err => console.log('Autoplay prevented:', err));
+            startAutoSlide();
+        }
+    });
+    
+    // Preload next video when current is playing
+    video.addEventListener('playing', function() {
+        const nextIndex = (currentSlide + 1) % totalSlides;
+        slides[nextIndex].load();
+    });
+});
+
+function showSlide(index) {
+    // Pause all videos and remove active class
+    slides.forEach((slide) => {
+        slide.classList.remove("active");
+        slide.pause();
+    });
+    
+    // Hide all overlay contents
+    overlayContents.forEach((content) => {
+        content.classList.remove("active");
+    });
+    
+    indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+    // Activate current slide and overlay
+    slides[index].classList.add("active");
+    overlayContents[index].classList.add("active");
+    indicators[index].classList.add("active");
+
+    // Play current video with error handling
+    slides[index].play().catch(err => {
+        console.log('Video play error:', err);
+    });
+    
+    // Trigger overlay content animations
+    triggerOverlayAnimations(index);
+}
+
+function triggerOverlayAnimations(index) {
+    const activeOverlay = overlayContents[index];
+    const h1 = activeOverlay.querySelector('h1');
+    const p = activeOverlay.querySelector('p');
+    const button = activeOverlay.querySelector('button');
+    
+    // Remove and re-add classes for h1
+    if (h1) {
+        h1.classList.remove('slide-in-left');
+        void h1.offsetWidth; // Force reflow
+        h1.classList.add('slide-in-left');
+    }
+    
+    // Remove and re-add classes for p
+    if (p) {
+        p.classList.remove('slide-in-left');
+        void p.offsetWidth; // Force reflow
+        p.classList.add('slide-in-left');
+    }
+    
+    // Remove and re-add classes for button
+    if (button) {
+        button.classList.remove('fade-in-up');
+        void button.offsetWidth; // Force reflow
+        button.classList.add('fade-in-up');
+    }
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+}
+
+function startAutoSlide() {
+    interval = setInterval(nextSlide, 6000);
+}
+
+function resetAutoSlide() {
+    clearInterval(interval);
+    startAutoSlide();
+}
+
+document.getElementById("right-arrow").addEventListener("click", function () {
+    nextSlide();
+    resetAutoSlide();
+});
+
+document.getElementById("left-arrow").addEventListener("click", function () {
+    prevSlide();
+    resetAutoSlide();
+});
+
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", function () {
+        currentSlide = index;
+        showSlide(currentSlide);
+        resetAutoSlide();
+    });
+});
+
+// Pause on hover
+const videoContainer = document.querySelector(".relative.h-screen");
+if (videoContainer) {
+    videoContainer.addEventListener("mouseenter", () => clearInterval(interval));
+    videoContainer.addEventListener("mouseleave", () => {
+        if (isFirstVideoLoaded) startAutoSlide();
+    });
 }

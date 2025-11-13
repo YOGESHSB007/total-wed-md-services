@@ -100,3 +100,43 @@
     });
   });
   
+// Intersection Observer for scroll animations
+const observerOptions1 = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer1 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+        }
+    });
+}, observerOptions1);
+
+// Observe all process steps
+document.querySelectorAll('.process-step').forEach((step, index) => {
+    step.style.animationDelay = `${index * 0.2}s`;
+    observer1.observe(step);
+});
+
+// Add hover effect to reveal check items
+document.querySelectorAll('.step-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        const checkItems = card.querySelectorAll('.check-item');
+        checkItems.forEach((item, index) => {
+            item.style.animation = `slideInLeft 0.4s ease-out ${index * 0.1}s forwards`;
+        });
+    });
+});
+
+// Add click interaction for mobile
+document.querySelectorAll('.step-card').forEach(card => {
+    card.addEventListener('click', function() {
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 200);
+    });
+});

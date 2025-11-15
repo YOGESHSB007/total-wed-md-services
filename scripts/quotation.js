@@ -1,80 +1,80 @@
-document.querySelectorAll("#blink").forEach((anchor) => {
-    const dot = document.createElement("div");
-    dot.className = "w-1.5 h-1.5 bg-blue-600 rounded-full animate-blink mr-1";
+// document.querySelectorAll("#blink").forEach((anchor) => {
+//     const dot = document.createElement("div");
+//     dot.className = "w-1.5 h-1.5 bg-blue-600 rounded-full animate-blink mr-1";
   
-    const wrapper = document.createElement("div");
-    wrapper.className = "flex items-center";
+//     const wrapper = document.createElement("div");
+//     wrapper.className = "flex items-center";
   
-    const clonedAnchor = anchor.cloneNode(true);
-    wrapper.appendChild(dot);
-    wrapper.appendChild(clonedAnchor);
+//     const clonedAnchor = anchor.cloneNode(true);
+//     wrapper.appendChild(dot);
+//     wrapper.appendChild(clonedAnchor);
   
-    anchor.replaceWith(wrapper);
+//     anchor.replaceWith(wrapper);
   
-    dot.style.visibility = "hidden";
+//     dot.style.visibility = "hidden";
   
-    wrapper.addEventListener("mouseover", () => {
-      dot.style.visibility = "visible";
-    });
+//     wrapper.addEventListener("mouseover", () => {
+//       dot.style.visibility = "visible";
+//     });
   
-    wrapper.addEventListener("mouseout", () => {
-      dot.style.visibility = "hidden";
-    });
-});
+//     wrapper.addEventListener("mouseout", () => {
+//       dot.style.visibility = "hidden";
+//     });
+// });
 
 // Mobile Menu Toggle
-const clickToOpen = document.getElementById('clickToOpen');
-const hiddensidebar = document.getElementById('hiddensidebar');
-const close = document.getElementById('close');
-const overlay = document.getElementById('overlay');
+// const clickToOpen = document.getElementById('clickToOpen');
+// const hiddensidebar = document.getElementById('hiddensidebar');
+// const close = document.getElementById('close');
+// const overlay = document.getElementById('overlay');
 
-clickToOpen.addEventListener('click', () => {
-    hiddensidebar.classList.remove('-translate-x-full');
-    overlay.classList.remove('hidden');
-});
+// clickToOpen.addEventListener('click', () => {
+//     hiddensidebar.classList.remove('-translate-x-full');
+//     overlay.classList.remove('hidden');
+// });
 
-close.addEventListener('click', () => {
-    hiddensidebar.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-});
+// close.addEventListener('click', () => {
+//     hiddensidebar.classList.add('-translate-x-full');
+//     overlay.classList.add('hidden');
+// });
 
-overlay.addEventListener('click', () => {
-    hiddensidebar.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-});
+// overlay.addEventListener('click', () => {
+//     hiddensidebar.classList.add('-translate-x-full');
+//     overlay.classList.add('hidden');
+// });
 
-// Services Dropdown Toggle (Mobile)
-const servicesToggle = document.getElementById('servicesToggle');
-const servicesDropdown = document.getElementById('servicesDropdown');
-const servicesArrow = document.getElementById('servicesArrow');
+// // Services Dropdown Toggle (Mobile)
+// const servicesToggle = document.getElementById('servicesToggle');
+// const servicesDropdown = document.getElementById('servicesDropdown');
+// const servicesArrow = document.getElementById('servicesArrow');
 
-servicesToggle.addEventListener('click', () => {
-    if (servicesDropdown.style.maxHeight) {
-        servicesDropdown.style.maxHeight = null;
-        servicesArrow.style.transform = 'rotate(0deg)';
-    } else {
-        servicesDropdown.style.maxHeight = servicesDropdown.scrollHeight + 'px';
-        servicesArrow.style.transform = 'rotate(180deg)';
-    }
-});
+// servicesToggle.addEventListener('click', () => {
+//     if (servicesDropdown.style.maxHeight) {
+//         servicesDropdown.style.maxHeight = null;
+//         servicesArrow.style.transform = 'rotate(0deg)';
+//     } else {
+//         servicesDropdown.style.maxHeight = servicesDropdown.scrollHeight + 'px';
+//         servicesArrow.style.transform = 'rotate(180deg)';
+//     }
+// });
 
 // Scroll to Top Button
-const scrollToTop = document.getElementById('scrollToTop');
+// const scrollToTop = document.getElementById('scrollToTop');
 
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollToTop.classList.add('show');
-    } else {
-        scrollToTop.classList.remove('show');
-    }
-});
+// window.addEventListener('scroll', () => {
+//     if (window.pageYOffset > 300) {
+//         scrollToTop.classList.add('show');
+//     } else {
+//         scrollToTop.classList.remove('show');
+//     }
+// });
 
-scrollToTop.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
+// scrollToTop.addEventListener('click', () => {
+//     window.scrollTo({
+//         top: 0,
+//         behavior: 'smooth'
+//     });
+// });
 
 // Animated Counter for Statistics
 function animateCounter(element) {
@@ -95,12 +95,12 @@ function animateCounter(element) {
 }
 
 // Intersection Observer for animations
-const observerOptions = {
+const observerOptions1 = {
     threshold: 0.2,
     rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const observer1 = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible-element');
@@ -112,16 +112,16 @@ const observer = new IntersectionObserver((entries) => {
             }
         }
     });
-}, observerOptions);
+}, observerOptions1);
 
 // Observe all hidden elements
 document.querySelectorAll('.hidden-element').forEach(el => {
-    observer.observe(el);
+    observer1.observe(el);
 });
 
 // Observe stat counters
 document.querySelectorAll('.stat-counter').forEach(el => {
-    observer.observe(el);
+    observer1.observe(el);
 });
 
 // Animate comparison cards on load

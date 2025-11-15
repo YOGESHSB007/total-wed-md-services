@@ -8,24 +8,26 @@
 
 .scroll-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #557CFA;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: none;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
     z-index: 1000;
-    transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(85, 124, 250, 0.4);
 }
 
 .scroll-to-top:hover {
-    background: #4169e8;
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.6);
 }
 
 .invoice-feature-card {

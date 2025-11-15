@@ -247,5 +247,66 @@ document.addEventListener('DOMContentLoaded', () => {
   activateTab(1);
 });
 
+
+
+ // Intersection Observer for scroll animations
+ const observerOptions1 = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer1 = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+      if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0) translateX(0) scale(1)';
+      }
+  });
+}, observerOptions1);
+
+// Observe all portal cards
+document.querySelectorAll('.portal-card').forEach((card, index) => {
+  card.style.opacity = '0';
+  if (index === 0) {
+      card.style.transform = 'translateX(-50px)';
+  } else {
+      card.style.transform = 'translateX(50px)';
+  }
+  card.style.transition = 'all 0.8s ease-out';
+  card.style.transitionDelay = `${index * 0.2}s`;
+  observer1.observe(card);
+});
+
+// Animate stats on scroll
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+      if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = counter.textContent;
+          animateCounter(counter, target);
+          statsObserver.unobserve(counter);
+      }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-counter').forEach(counter => {
+  statsObserver.observe(counter);
+});
+
+function animateCounter(element, target) {
+  element.style.opacity = '1';
+  // Simple fade in for now
+}
+
+// Add click interaction
+document.querySelectorAll('.portal-card').forEach(card => {
+  card.addEventListener('click', function() {
+      this.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+          this.style.transform = '';
+      }, 200);
+  });
+});
+
 // Log initialization for debugging
 console.log('All animations initialized successfully');

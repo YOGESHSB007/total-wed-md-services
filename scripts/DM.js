@@ -35,22 +35,55 @@
  });
 
  // Scroll to Top
- const scrollToTopBtn = document.getElementById('scrollToTop');
+ const scrollToTopBtn = document.getElementById("scrollToTop");
 
- window.addEventListener('scroll', () => {
-     if (window.pageYOffset > 300) {
-         scrollToTopBtn.classList.add('show');
-     } else {
-         scrollToTopBtn.classList.remove('show');
-     }
+ // Show/hide button based on scroll position
+ window.addEventListener("scroll", () => {
+   if (window.pageYOffset > 300) {
+     scrollToTopBtn.style.display = "flex";
+   } else {
+     scrollToTopBtn.style.display = "none";
+   }
  });
+ 
 
- scrollToTopBtn.addEventListener('click', () => {
-     window.scrollTo({
-         top: 0,
-         behavior: 'smooth'
-     });
- });
+ const observerOptions = {
+    threshold: 0.5,
+    rootMargin: "0px",
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const counters = entry.target.querySelectorAll(".counter");
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute("data-target"));
+          animateCounter(counter, target);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Observe the stats section
+  const statsSection = document.querySelector(".bg-gradient-to-r");
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+
+
+ // Scroll to top function
+ function scrollToTop() {
+   window.scrollTo({
+     top: 0,
+     behavior: "smooth",
+   });
+ }
+ 
+ // Initial state
+ if (scrollToTopBtn) {
+   scrollToTopBtn.style.display = "none";
+ }
 
  // Smooth scroll for anchor links
  document.querySelectorAll('a[href^="#"]').forEach(anchor => {

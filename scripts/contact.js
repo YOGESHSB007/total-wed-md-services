@@ -27,6 +27,30 @@ document.querySelectorAll("#blink").forEach((anchor) => {
   });
 
 
+
+  const clickToOpen = document.getElementById('clickToOpen');
+const hiddensidebar = document.getElementById('hiddensidebar');
+const closeBtn = document.getElementById('close');
+const overlay = document.getElementById('overlay');
+
+// Open sidebar
+clickToOpen.addEventListener('click', () => {
+    hiddensidebar.classList.remove('-translate-x-full');
+    hiddensidebar.classList.add('translate-x-0');
+    overlay.classList.remove('hidden');
+});
+
+// Close sidebar
+function closeSidebar() {
+    hiddensidebar.classList.add('-translate-x-full');
+    hiddensidebar.classList.remove('translate-x-0');
+    overlay.classList.add('hidden');
+}
+
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+
   const servicesToggle = document.getElementById('servicesToggle');
 const servicesDropdown = document.getElementById('servicesDropdown');
 const servicesArrow = document.getElementById('servicesArrow');

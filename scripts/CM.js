@@ -66,6 +66,29 @@ function scrollToTop() {
   });
 }
 
+
+const clickToOpen = document.getElementById('clickToOpen');
+const hiddensidebar = document.getElementById('hiddensidebar');
+const closeBtn = document.getElementById('close');
+const overlay = document.getElementById('overlay');
+
+// Open sidebar
+clickToOpen.addEventListener('click', () => {
+    hiddensidebar.classList.remove('-translate-x-full');
+    hiddensidebar.classList.add('translate-x-0');
+    overlay.classList.remove('hidden');
+});
+
+// Close sidebar
+function closeSidebar() {
+    hiddensidebar.classList.add('-translate-x-full');
+    hiddensidebar.classList.remove('translate-x-0');
+    overlay.classList.add('hidden');
+}
+
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
 // UNIFIED INTERSECTION OBSERVER - SINGLE DECLARATION
 // This single observer handles all scroll animations throughout the page
 const observerOptions = {

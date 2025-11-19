@@ -205,17 +205,10 @@ form.addEventListener('submit', async function(e) {
         state: form.state.value,
         pincode: form.pincode.value,
         dob: form.dob.value,
-        position: form.position.value,
-        department: form.department.value,
-        location: form.location.value,
-        expectedSalary: form.expectedSalary.value,
-        noticePeriod: form.noticePeriod.value,
-        joinDate: form.joinDate.value,
         totalExperience: form.totalExperience.value,
         qualification: form.qualification.value,
         currentCompany: form.currentCompany.value || 'N/A',
         currentDesignation: form.currentDesignation.value || 'N/A',
-        currentCTC: form.currentCTC.value || 'N/A',
         skills: form.skills.value,
         workSummary: form.workSummary.value || 'N/A',
         linkedin: form.linkedin.value || 'N/A',
@@ -413,9 +406,7 @@ form.addEventListener('submit', async function(e) {
  const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
  dobInput.max = maxDate.toISOString().split('T')[0];
 
- // Set minimum date for joining date (today)
- const joinDateInput = document.querySelector('input[name="joinDate"]');
- joinDateInput.min = today.toISOString().split('T')[0];
+
 
 
  

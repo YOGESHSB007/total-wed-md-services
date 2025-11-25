@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Prepare template parameters for EmailJS
       const templateParams = {
-          to_email: 'shivanandhb03@gmail.com', // Your receiving email
+          to_email: 'totalwebmdservices@gmail.com', // Your receiving email
           from_name: firstName,
           from_email: email,
           phone: phone,
@@ -182,8 +182,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
           // Send email using EmailJS
           const response = await emailjs.send(
-              'service_7dn0e8t',  // Your Service ID
-              'template_stm795g', // Create a new template ID for contact form in EmailJS dashboard
+              'service_q9c7jch',  // Your Service ID
+              'template_88mm8g7', // Create a new template ID for contact form in EmailJS dashboard
               templateParams
           );
 

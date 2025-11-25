@@ -195,7 +195,7 @@ form.addEventListener('submit', async function(e) {
     
     // Prepare template parameters - MUST match your EmailJS template variables
     const templateParams = {
-        to_email: 'shivanandhb03@gmail.com', // Replace with your actual email
+        to_email: 'totalwebmdservices@gmail.com', // Replace with your actual email
         firstName: form.firstName.value,
         lastName: form.lastName.value,
         email: form.email.value,
@@ -227,8 +227,8 @@ form.addEventListener('submit', async function(e) {
     try {
         // Send email using EmailJS
         const response = await emailjs.send(
-            'service_7dn0e8t',  // Your Service ID
-            'template_zr42uyb', // Your Template ID (create new one for job applications)
+            'service_q9c7jch',  // Your Service ID
+            'template_85f1e18', // Your Template ID (create new one for job applications)
             templateParams
         );
 

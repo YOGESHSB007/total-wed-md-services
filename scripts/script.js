@@ -35,6 +35,9 @@ servicesToggle.addEventListener('click', () => {
     }
 });
 
+
+
+
 document.querySelectorAll("#blink").forEach((anchor) => {
   const dot = document.createElement("div");
   dot.className = "w-1.5 h-1.5 bg-[#769FCD] rounded-full animate-blink mr-1";
@@ -517,3 +520,57 @@ if (videoContainer) {
         if (isFirstVideoLoaded) startAutoSlide();
     });
 }
+
+// Animated Counter for Statistics
+function animateCounter(element) {
+  const target = parseInt(element.getAttribute("data-target"));
+  const duration = 2000;
+  const step = target / (duration / 16);
+  let current = 0;
+
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      element.textContent =
+        target +
+        (element.parentElement
+          .querySelector(".text-lg")
+          .textContent.includes("%")
+          ? "%"
+          : "+");
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(current);
+    }
+  }, 16);
+}
+
+// Intersection Observer for animations
+const observerOptions2 = {
+  threshold: 0.2,
+  rootMargin: "0px 0px -100px 0px",
+};
+
+const observer2 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible-element");
+      entry.target.classList.remove("hidden-element");
+
+      // Animate counters when they come into view
+      if (entry.target.classList.contains("stat-counter")) {
+        animateCounter(entry.target);
+      }
+    }
+  });
+}, observerOptions2);
+
+// Observe all hidden elements
+document.querySelectorAll(".hidden-element").forEach((el) => {
+  observer.observe(el);
+});
+
+// Observe stat counters
+document.querySelectorAll(".stat-counter").forEach((el) => {
+  observer2.observe(el);
+});

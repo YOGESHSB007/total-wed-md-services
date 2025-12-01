@@ -220,3 +220,7 @@ header {
 .social-icon:hover {
     transform: translateY(-3px);
 }
+
+.hero-overlay {
+    background: linear-gradient(90deg, rgba(30, 41, 59, 0.85) 0%, rgba(30, 41, 59, 0.4) 100%);
+}
